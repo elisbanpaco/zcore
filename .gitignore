@@ -1,0 +1,48 @@
+# Build directories
+build/
+bin/
+out/
+cmake-build-*/
+
+# CMake cache and generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+compile_commands.json
+CMakeUserPresets.json
+CMakeSettings.json
+
+# Compiled objects and libraries
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.exe
+
+# User-generated binary/test files
+*.hpc
+*.bin
+*.pdf
+*.log
+*.dat
+
+# IDE configurations
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.cproject
+.settings/
+*.sublime-workspace
+*.sublime-project
+.cache/
+
+# OS generated files
+.DS_Store
+Thumbs.db
