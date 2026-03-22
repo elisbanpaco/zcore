@@ -13,18 +13,30 @@
 namespace compressor {
 
 constexpr uint32_t MAGIC_NUMBER = 0x48445043;
-constexpr uint8_t VERSION_MAJOR = 1;
+constexpr uint8_t VERSION_MAJOR = 2;
 constexpr uint8_t VERSION_MINOR = 0;
+constexpr uint32_t DEFAULT_BLOCK_SIZE = 64 * 1024;
 
+static constexpr uint8_t BLOCK_FLAG_STORED    = 0x00;
+static constexpr uint8_t BLOCK_FLAG_COMPRESSED = 0x01;
+
+#pragma pack(push, 1)
 struct CompressionHeader {
     uint32_t magic;
     uint8_t majorVersion;
     uint8_t minorVersion;
     uint32_t originalSize;
-    uint32_t compressedSize;
-    uint32_t lz77TokenCount;
-    uint32_t symbolDataSize;
+    uint32_t blockSize;
+    uint32_t blockCount;
 };
+#pragma pack(pop)
+
+#pragma pack(push, 1)
+struct BlockHeader {
+    uint8_t flags;
+    uint32_t dataSize;
+};
+#pragma pack(pop)
 
 class CompressionEngine {
 public:
@@ -39,17 +51,17 @@ public:
     size_t getCompressedSize() const { return compressedSize_; }
 
 private:
-    void writeCompressedFile(const std::string& path,
-                             const std::vector<LZ77Token>& lz77Tokens,
-                             const std::vector<uint8_t>& literalData,
-                             size_t originalSize);
+    void compressAndWriteBlock(std::ofstream& output,
+                               const std::vector<uint8_t>& data,
+                               size_t& totalCompressedSize);
 
-    std::vector<LZ77Token> readCompressedTokens(std::ifstream& stream,
-                                                const CompressionHeader& header);
+    void readAndDecompressBlock(std::ifstream& input,
+                                const BlockHeader& bh,
+                                std::vector<uint8_t>& output);
 
     std::unique_ptr<LZ77Compressor> lz77_;
     std::unique_ptr<HuffmanCompressor> huffman_;
-    
+
     size_t originalSize_;
     size_t compressedSize_;
 };
