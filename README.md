@@ -1,237 +1,140 @@
-# HPC - High Performance Compression Engine
+# HPC — High Performance Compression Engine
 
-**Hybrid LZ77 + Huffman Compression for Binary Data**
+**Hybrid LZ77 + Huffman compressor with per-block Smart Fallback (Format V2)**
 
-A professional-grade, production-ready file compression engine implementing a hybrid algorithm combining LZ77 dictionary-based compression with Huffman entropy encoding, similar to the DEFLATE algorithm used in zlib/gzip.
+[![Build](https://img.shields.io/badge/build-passing-brightgreen)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![C++17](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](#)
+[![CMake](https://img.shields.io/badge/CMake-3.15+-064F8C.svg)](#)
 
-## Features
+---
 
-- **Hybrid Compression**: Combines LZ77 (sliding window, hash chains) with Huffman coding
-- **Binary Data Support**: Handles arbitrary binary data, not just text
-- **Chunk-Based Processing**: Memory-efficient streaming for large files
-- **Modern C++**: C++17 with RAII, smart pointers, and noexcept
-- **Professional Error Handling**: Custom exception hierarchy with clear error messages
-- **Cross-Platform**: CMake-based build system for Linux, Windows, and macOS
-- **Optimized**: Release builds with -O3, -march=native optimizations
+## Architecture — Format V2 & Smart Fallback
 
-## Architecture
+The core differentiator of HPC is its **block-level Smart Fallback** mechanism. Instead of applying compression to the entire file as a single monolithic stream, HPC processes input data in independent **64 KB blocks**. Each block is individually evaluated:
 
 ```
-compresor-file/
-├── Core/                      # Core compression algorithms
-│   ├── LZ77Compressor.hpp/cpp  # LZ77 with hash chain matching
-│   ├── HuffmanCompressor.hpp/cpp # Adaptive Huffman coding
-│   └── CompressionEngine.hpp/cpp # Main coordinator
-├── IO/                        # File I/O layer
-│   ├── BitBuffer.hpp/cpp      # Bit-level read/write operations
-│   └── FileHandler.hpp/cpp    # RAII file handling with chunking
-├── CLI/                       # Command-line interface
-│   └── ArgumentParser.hpp/cpp # Robust argument parsing
-├── Utils/                     # Utilities
-│   ├── Logger.hpp/cpp         # Thread-safe logging
-│   └── CompressionException.hpp # Custom exceptions
-├── CMakeLists.txt             # Build configuration
-└── main.cpp                   # Entry point
+Input File (e.g. 256 KB)
+  ├── Block 0 (64 KB) → LZ77 + Huffman → compressed payload?  → STORED (raw copy)
+  ├── Block 1 (64 KB) → LZ77 + Huffman → compressed payload?  → COMPRESSED
+  ├── Block 2 (64 KB) → LZ77 + Huffman → compressed payload?  → COMPRESSED
+  └── Block 3 (64 KB) → LZ77 + Huffman → compressed payload?  → STORED (raw copy)
 ```
 
-### Module Details
+**The problem it solves:** High-entropy files (PDFs, JPEGs, ZIPs, already-compressed binaries) do not compress well. Applying LZ77+Huffman to these files wastes CPU cycles and, worst case, *increases* the output size (incompressibility expansion). A naive whole-file compressor either always compresses (wasting time) or requires a slow heuristic pass.
 
-- **Core/LZ77Compressor**: Implements LZ77 with 32KB sliding window and hash chain acceleration for fast match finding
-- **Core/HuffmanCompressor**: Canonical Huffman coding with tree serialization for consistent compression ratios
-- **IO/BitBuffer**: Efficient bit-level I/O for Huffman code output
-- **IO/FileHandler**: RAII-based file handling with chunk-based streaming
-- **Utils/Logger**: Thread-safe singleton logger with multiple log levels
+**The Smart Fallback solution:** After compression, the engine compares the compressed payload size against the original block size. If the compressed representation is *larger*, the block is written as raw stored bytes instead. This is a **per-block, per-signal decision** — no heuristics, no guessing, zero waste.
+
+### V2 Binary Format
+
+```
+┌──────────────────────────────────────────────────┐
+│ CompressionHeader (15 bytes, #pragma pack(1))    │
+│   magic        : uint32_t  (0x48445043 = "HDPC") │
+│   majorVersion : uint8_t   (2)                   │
+│   minorVersion : uint8_t   (0)                   │
+│   originalSize : uint32_t                        │
+│   blockSize    : uint32_t  (default: 65536)       │
+│   blockCount   : uint32_t                        │
+├──────────────────────────────────────────────────┤
+│ Block 0..N                                       │
+│ ┌────────────────────────────────────────────┐   │
+│ │ BlockHeader (5 bytes, #pragma pack(1))     │   │
+│ │   flags    : uint8_t  (0x00=STORED,        │   │
+│ │                        0x01=COMPRESSED)    │   │
+│ │   dataSize : uint32_t                      │   │
+│ ├────────────────────────────────────────────┤   │
+│ │ Payload (dataSize bytes)                   │   │
+│ │   STORED:    raw block bytes               │   │
+│ │   COMPRESSED: [symbolCount(4)] + Huffman   │   │
+│ └────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────┘
+```
+
+All headers use `#pragma pack(1)` to eliminate compiler padding, ensuring a predictable 5-byte `BlockHeader` and 15-byte `CompressionHeader` across all platforms. This is critical for a portable binary format.
+
+---
 
 ## Installation
 
 ### Prerequisites
 
-- C++17 compatible compiler (GCC 9+, Clang 10+, MSVC 2019+)
-- CMake 3.15+
-- Make or Ninja build system
+- **Compiler**: GCC 9+, Clang 10+, or MSVC 2019+ (C++17 required)
+- **Build system**: CMake 3.15+
 
-### Build Instructions
+### Build
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/hpc-compressor.git
+git clone https://github.com/epadev/hpc-compressor.git
 cd hpc-compressor
-
-# Create build directory
 mkdir build && cd build
-
-# Configure with CMake
 cmake .. -DCMAKE_BUILD_TYPE=Release
-
-# Build
 cmake --build . --config Release
-
-# Install (optional)
-cmake --install . --prefix /usr/local
 ```
 
-### Platform-Specific Notes
+The binary is output to `build/bin/hpc`.
 
-**Linux/macOS:**
+### Install (optional)
+
 ```bash
-cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=g++
+sudo cmake --install . --prefix /usr/local
 ```
 
-**Windows (Visual Studio):**
-```powershell
-cmake .. -G "Visual Studio 16 2019" -A x64
-cmake --build . --config Release
-```
+---
 
 ## Usage
 
-### Basic Commands
-
 ```bash
-# Compress a file
-./hpc -c input.bin -o output.hpc
+# Compress
+./hpc -c input.txt -o input.txt.hpc
 
-# Decompress a file
-./hpc -d input.hpc -o output.bin
+# Decompress
+./hpc -d input.txt.hpc -o restored.txt
 
-# Short form (auto-detect mode from extension)
-./hpc input.txt input.txt.hpc
+# Shorthand — compress (auto .hpc output)
+./hpc input.bin
 
-# Decompress (auto-detect .hpc extension)
+# Shorthand — decompress (auto-strip .hpc extension)
 ./hpc compressed.hpc
-```
 
-### Command-Line Options
-
-| Option | Description |
-|--------|-------------|
-| `-c, --compress` | Set compression mode |
-| `-d, --decompress` | Set decompression mode |
-| `-i, --input FILE` | Input file path |
-| `-o, --output FILE` | Output file path |
-| `-v, --verbose` | Enable verbose logging |
-| `-q, --quiet` | Suppress non-error output |
-| `-V, --version` | Show version information |
-| `-h, --help` | Show help message |
-
-### Examples
-
-```bash
-# Compress with verbose output
+# Verbose mode
 ./hpc -c -v largefile.dat -o compressed.hpc
 
-# Decompress suppressing progress messages
-./hpc -d -q compressed.hpc -o restored.dat
-
-# Streaming compression (auto-output naming)
-./hpc myfile.bin    # Creates myfile.bin.hpc
-./hpc compressed.hpc  # Restores to myfile.bin
+# Quiet mode (errors only)
+./hpc -d -q archive.hpc -o archive.tar
 ```
 
-## File Format
+### Options
 
-HPC files use a custom binary format with the following structure:
+| Flag | Description |
+|------|-------------|
+| `-c, --compress` | Compression mode |
+| `-d, --decompress` | Decompression mode |
+| `-i, --input FILE` | Input file |
+| `-o, --output FILE` | Output file |
+| `-v, --verbose` | Enable verbose logging |
+| `-q, --quiet` | Suppress non-error output |
+| `-V, --version` | Print version |
+| `-h, --help` | Print usage |
 
-```
-┌─────────────────────────────────┐
-│ Header (16 bytes)               │
-│  - Magic: 0x48445043 ("HDPC")  │
-│  - Version (major.minor)       │
-│  - Original size               │
-│  - Compressed size             │
-│  - Token count                 │
-│  - Symbol data size            │
-├─────────────────────────────────┤
-│ Chunk Data                      │
-│  - Raw literal bytes           │
-├─────────────────────────────────┤
-│ Huffman-Encoded Symbol Stream   │
-│  - Serialized Huffman tree     │
-│  - Encoded LZ77 tokens         │
-└─────────────────────────────────┘
-```
+---
 
 ## Benchmarks
 
-> **Note**: Fill in your benchmark results here.
+> Fill in after running on your hardware.
 
-### Compression Ratio (Compressibility Test Set)
+| File Type | Original Size | Compressed Size | Ratio | Time | RAM |
+|-----------|---------------|-----------------|-------|------|-----|
+| Plain text (.txt) | | | | | |
+| Source code (.cpp) | | | | | |
+| JSON data (.json) | | | | | |
+| Binary (.bin) | | | | | |
+| PDF (.pdf) | | | | | |
+| JPEG (.jpg) | | | | | |
+| ZIP archive (.zip) | | | | | |
 
-| File Type | Original | Compressed | Ratio |
-|-----------|----------|------------|-------|
-| Text (enwik8) | 100 MB | TBD | TBD% |
-| Binary (random) | 100 MB | TBD | TBD% |
-| Image (PNG) | 50 MB | TBD | TBD% |
-| Archive (.zip) | 100 MB | TBD | TBD% |
-
-### Speed Benchmarks
-
-| Operation | Throughput | Hardware |
-|-----------|------------|----------|
-| Compression | TBD MB/s | TBD |
-| Decompression | TBD MB/s | TBD |
-
-### Comparison with Other Tools
-
-| Tool | Ratio | Speed |
-|------|-------|-------|
-| HPC | TBD | TBD |
-| gzip -6 | TBD | TBD |
-| zstd -3 | TBD | TBD |
-| lz4 | TBD | TBD |
-
-## Technical Details
-
-### LZ77 Algorithm
-
-The LZ77 compressor uses:
-- **Sliding Window**: 32KB for match references
-- **Lookahead Buffer**: 258 bytes maximum match length
-- **Hash Chains**: O(1) average case match finding
-- **Minimum Match**: 3 bytes (2-byte matches discarded)
-
-### Huffman Coding
-
-- **Canonical Codes**: Ensures consistent output
-- **Adaptive Tree Building**: Per-file optimal trees
-- **Symbol Space**: 256 literal bytes + special tokens (256=match marker, 257=length)
-
-### Memory Usage
-
-- **Chunk Size**: 64KB default buffer
-- **Peak Memory**: ~2MB for typical files
-- **Streaming**: Only one chunk in memory at a time
-
-## Error Handling
-
-The engine provides specific exceptions for different failure modes:
-
-```cpp
-try {
-    engine.compress("input.bin", "output.hpc");
-} catch (const FileOpenError& e) {
-    // Handle file access issues
-} catch (const FileCorruptedError& e) {
-    // Handle corrupted archives
-} catch (const InvalidFormatError& e) {
-    // Handle unsupported format versions
-}
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push to branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+---
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- LZ77 algorithm based on the original Lempel-Ziv 1977 paper
-- Huffman coding based on David Huffman's 1952 paper
-- DEFLATE format inspiration from zlib/gzip
+[MIT](LICENSE)
