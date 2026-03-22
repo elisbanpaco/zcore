@@ -13,14 +13,6 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
-include_directories(
-    ${CMAKE_SOURCE_DIR}
-    ${CMAKE_SOURCE_DIR}/Utils
-    ${CMAKE_SOURCE_DIR}/IO
-    ${CMAKE_SOURCE_DIR}/Core
-    ${CMAKE_SOURCE_DIR}/CLI
-)
-
 set(UTILS_SOURCES
     Utils/Logger.cpp
     Utils/CompressionException.hpp
@@ -53,6 +45,14 @@ add_executable(hpc
     ${IO_SOURCES}
     ${CORE_SOURCES}
     ${CLI_SOURCES}
+)
+
+target_include_directories(hpc PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}/Utils
+    ${CMAKE_CURRENT_SOURCE_DIR}/IO
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core
+    ${CMAKE_CURRENT_SOURCE_DIR}/CLI
 )
 
 target_compile_options(hpc PRIVATE
