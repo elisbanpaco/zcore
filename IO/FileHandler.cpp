@@ -55,14 +55,22 @@ FileHandler& FileHandler::operator=(FileHandler&& other) noexcept {
 }
 
 size_t FileHandler::readChunk(std::vector<uint8_t>& buffer) {
-    checkStreamState(false);
-    
+    if (stream_.eof()) {
+        buffer.resize(0);
+        return 0;
+    }
+
     buffer.resize(chunkSize_);
     stream_.read(reinterpret_cast<char*>(buffer.data()), chunkSize_);
     size_t bytesRead = stream_.gcount();
+
+    if (stream_.bad() || (bytesRead == 0 && stream_.fail() && !stream_.eof())) {
+        throw FileReadError("stream read failed");
+    }
+
     buffer.resize(bytesRead);
     bytesProcessed_ += bytesRead;
-    
+
     return bytesRead;
 }
 
