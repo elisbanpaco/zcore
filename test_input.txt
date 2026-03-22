@@ -1,0 +1,1 @@
+Hello World! This is a test file for the HPC compression engine. The quick brown fox jumps over the lazy dog. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

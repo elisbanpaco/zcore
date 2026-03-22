@@ -1,0 +1,7 @@
+/home/epadev/Documents/myDrive/proyects/compresor-file/build/CMakeFiles/hpc.dir
+/home/epadev/Documents/myDrive/proyects/compresor-file/build/CMakeFiles/edit_cache.dir
+/home/epadev/Documents/myDrive/proyects/compresor-file/build/CMakeFiles/rebuild_cache.dir
+/home/epadev/Documents/myDrive/proyects/compresor-file/build/CMakeFiles/list_install_components.dir
+/home/epadev/Documents/myDrive/proyects/compresor-file/build/CMakeFiles/install.dir
+/home/epadev/Documents/myDrive/proyects/compresor-file/build/CMakeFiles/install/local.dir
+/home/epadev/Documents/myDrive/proyects/compresor-file/build/CMakeFiles/install/strip.dir

@@ -1,0 +1,50 @@
+[
+{
+  "directory": "/home/epadev/Documents/myDrive/proyects/compresor-file/build",
+  "command": "/usr/bin/c++ -DNDEBUG -I/home/epadev/Documents/myDrive/proyects/compresor-file -I/home/epadev/Documents/myDrive/proyects/compresor-file/Utils -I/home/epadev/Documents/myDrive/proyects/compresor-file/IO -I/home/epadev/Documents/myDrive/proyects/compresor-file/Core -I/home/epadev/Documents/myDrive/proyects/compresor-file/CLI -O3 -DNDEBUG -std=c++17 -O3 -march=native -mtune=native -o CMakeFiles/hpc.dir/main.cpp.o -c /home/epadev/Documents/myDrive/proyects/compresor-file/main.cpp",
+  "file": "/home/epadev/Documents/myDrive/proyects/compresor-file/main.cpp",
+  "output": "CMakeFiles/hpc.dir/main.cpp.o"
+},
+{
+  "directory": "/home/epadev/Documents/myDrive/proyects/compresor-file/build",
+  "command": "/usr/bin/c++ -DNDEBUG -I/home/epadev/Documents/myDrive/proyects/compresor-file -I/home/epadev/Documents/myDrive/proyects/compresor-file/Utils -I/home/epadev/Documents/myDrive/proyects/compresor-file/IO -I/home/epadev/Documents/myDrive/proyects/compresor-file/Core -I/home/epadev/Documents/myDrive/proyects/compresor-file/CLI -O3 -DNDEBUG -std=c++17 -O3 -march=native -mtune=native -o CMakeFiles/hpc.dir/Utils/Logger.cpp.o -c /home/epadev/Documents/myDrive/proyects/compresor-file/Utils/Logger.cpp",
+  "file": "/home/epadev/Documents/myDrive/proyects/compresor-file/Utils/Logger.cpp",
+  "output": "CMakeFiles/hpc.dir/Utils/Logger.cpp.o"
+},
+{
+  "directory": "/home/epadev/Documents/myDrive/proyects/compresor-file/build",
+  "command": "/usr/bin/c++ -DNDEBUG -I/home/epadev/Documents/myDrive/proyects/compresor-file -I/home/epadev/Documents/myDrive/proyects/compresor-file/Utils -I/home/epadev/Documents/myDrive/proyects/compresor-file/IO -I/home/epadev/Documents/myDrive/proyects/compresor-file/Core -I/home/epadev/Documents/myDrive/proyects/compresor-file/CLI -O3 -DNDEBUG -std=c++17 -O3 -march=native -mtune=native -o CMakeFiles/hpc.dir/IO/BitBuffer.cpp.o -c /home/epadev/Documents/myDrive/proyects/compresor-file/IO/BitBuffer.cpp",
+  "file": "/home/epadev/Documents/myDrive/proyects/compresor-file/IO/BitBuffer.cpp",
+  "output": "CMakeFiles/hpc.dir/IO/BitBuffer.cpp.o"
+},
+{
+  "directory": "/home/epadev/Documents/myDrive/proyects/compresor-file/build",
+  "command": "/usr/bin/c++ -DNDEBUG -I/home/epadev/Documents/myDrive/proyects/compresor-file -I/home/epadev/Documents/myDrive/proyects/compresor-file/Utils -I/home/epadev/Documents/myDrive/proyects/compresor-file/IO -I/home/epadev/Documents/myDrive/proyects/compresor-file/Core -I/home/epadev/Documents/myDrive/proyects/compresor-file/CLI -O3 -DNDEBUG -std=c++17 -O3 -march=native -mtune=native -o CMakeFiles/hpc.dir/IO/FileHandler.cpp.o -c /home/epadev/Documents/myDrive/proyects/compresor-file/IO/FileHandler.cpp",
+  "file": "/home/epadev/Documents/myDrive/proyects/compresor-file/IO/FileHandler.cpp",
+  "output": "CMakeFiles/hpc.dir/IO/FileHandler.cpp.o"
+},
+{
+  "directory": "/home/epadev/Documents/myDrive/proyects/compresor-file/build",
+  "command": "/usr/bin/c++ -DNDEBUG -I/home/epadev/Documents/myDrive/proyects/compresor-file -I/home/epadev/Documents/myDrive/proyects/compresor-file/Utils -I/home/epadev/Documents/myDrive/proyects/compresor-file/IO -I/home/epadev/Documents/myDrive/proyects/compresor-file/Core -I/home/epadev/Documents/myDrive/proyects/compresor-file/CLI -O3 -DNDEBUG -std=c++17 -O3 -march=native -mtune=native -o CMakeFiles/hpc.dir/Core/LZ77Compressor.cpp.o -c /home/epadev/Documents/myDrive/proyects/compresor-file/Core/LZ77Compressor.cpp",
+  "file": "/home/epadev/Documents/myDrive/proyects/compresor-file/Core/LZ77Compressor.cpp",
+  "output": "CMakeFiles/hpc.dir/Core/LZ77Compressor.cpp.o"
+},
+{
+  "directory": "/home/epadev/Documents/myDrive/proyects/compresor-file/build",
+  "command": "/usr/bin/c++ -DNDEBUG -I/home/epadev/Documents/myDrive/proyects/compresor-file -I/home/epadev/Documents/myDrive/proyects/compresor-file/Utils -I/home/epadev/Documents/myDrive/proyects/compresor-file/IO -I/home/epadev/Documents/myDrive/proyects/compresor-file/Core -I/home/epadev/Documents/myDrive/proyects/compresor-file/CLI -O3 -DNDEBUG -std=c++17 -O3 -march=native -mtune=native -o CMakeFiles/hpc.dir/Core/HuffmanCompressor.cpp.o -c /home/epadev/Documents/myDrive/proyects/compresor-file/Core/HuffmanCompressor.cpp",
+  "file": "/home/epadev/Documents/myDrive/proyects/compresor-file/Core/HuffmanCompressor.cpp",
+  "output": "CMakeFiles/hpc.dir/Core/HuffmanCompressor.cpp.o"
+},
+{
+  "directory": "/home/epadev/Documents/myDrive/proyects/compresor-file/build",
+  "command": "/usr/bin/c++ -DNDEBUG -I/home/epadev/Documents/myDrive/proyects/compresor-file -I/home/epadev/Documents/myDrive/proyects/compresor-file/Utils -I/home/epadev/Documents/myDrive/proyects/compresor-file/IO -I/home/epadev/Documents/myDrive/proyects/compresor-file/Core -I/home/epadev/Documents/myDrive/proyects/compresor-file/CLI -O3 -DNDEBUG -std=c++17 -O3 -march=native -mtune=native -o CMakeFiles/hpc.dir/Core/CompressionEngine.cpp.o -c /home/epadev/Documents/myDrive/proyects/compresor-file/Core/CompressionEngine.cpp",
+  "file": "/home/epadev/Documents/myDrive/proyects/compresor-file/Core/CompressionEngine.cpp",
+  "output": "CMakeFiles/hpc.dir/Core/CompressionEngine.cpp.o"
+},
+{
+  "directory": "/home/epadev/Documents/myDrive/proyects/compresor-file/build",
+  "command": "/usr/bin/c++ -DNDEBUG -I/home/epadev/Documents/myDrive/proyects/compresor-file -I/home/epadev/Documents/myDrive/proyects/compresor-file/Utils -I/home/epadev/Documents/myDrive/proyects/compresor-file/IO -I/home/epadev/Documents/myDrive/proyects/compresor-file/Core -I/home/epadev/Documents/myDrive/proyects/compresor-file/CLI -O3 -DNDEBUG -std=c++17 -O3 -march=native -mtune=native -o CMakeFiles/hpc.dir/CLI/ArgumentParser.cpp.o -c /home/epadev/Documents/myDrive/proyects/compresor-file/CLI/ArgumentParser.cpp",
+  "file": "/home/epadev/Documents/myDrive/proyects/compresor-file/CLI/ArgumentParser.cpp",
+  "output": "CMakeFiles/hpc.dir/CLI/ArgumentParser.cpp.o"
+}
+]
