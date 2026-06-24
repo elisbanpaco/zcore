@@ -1,4 +1,4 @@
-#include "Lz77.hpp"
+#include "core/Lz77.hpp"
 #include <iostream>
 #include <vector>
 #include <cstdint>
@@ -7,96 +7,133 @@
 using namespace std;
 
 namespace {
+    const uint16_t MAX_VENTANA_BUSQUEDA = 4095;
+    const uint8_t MAX_LONGITUD_COINCIDENCIA = 255;
 
-// Configuraciones de la ventana deslizante
-const uint16_t MAX_VENTANA_BUSQUEDA = 4095; // Qué tan atrás podemos mirar
-const uint8_t MAX_LONGITUD_COINCIDENCIA = 255; // Cuántos caracteres podemos copiar de golpe
+    struct Tupla {
+        uint16_t distancia;
+        uint8_t longitud;
+        char siguiente_caracter;
+    };
 
-// Nuestra tupla clásica de LZ77
-struct Tupla {
-    uint16_t distancia;
-    uint8_t longitud;
-    char siguiente_caracter;
-};
-
-// Función para buscar la repetición más larga en el "pasado"
-Tupla buscarMejorCoincidencia(const vector<char>& datos, int posicionActual) {
-    Tupla mejor = {0, 0, datos[posicionActual]};
-    
-    // Definir los límites de nuestra ventana de búsqueda (no podemos ir más atrás del inicio)
-    int inicioBusqueda = max(0, posicionActual - MAX_VENTANA_BUSQUEDA);
-    
-    // Buscar en el texto pasado
-    for (int j = inicioBusqueda; j < posicionActual; ++j) {
-        int longitudActual = 0;
+    Tupla buscarMejorCoincidencia(const vector<char>& ventana, int posicionActual) {
+        Tupla mejor = {0, 0, ventana[posicionActual]};
+        int inicioBusqueda = max(0, posicionActual - MAX_VENTANA_BUSQUEDA);
         
-        // Mientras las letras coincidan y no nos pasemos del límite de lectura
-        while (longitudActual < MAX_LONGITUD_COINCIDENCIA && 
-               posicionActual + longitudActual < datos.size() &&
-               datos[j + longitudActual] == datos[posicionActual + longitudActual]) {
-            longitudActual++;
+        for (int j = inicioBusqueda; j < posicionActual; ++j) {
+            int longitudActual = 0;
+            while (longitudActual < MAX_LONGITUD_COINCIDENCIA && 
+                   posicionActual + longitudActual < ventana.size() &&
+                   ventana[j + longitudActual] == ventana[posicionActual + longitudActual]) {
+                longitudActual++;
+            }
+            if (longitudActual > mejor.longitud) {
+                mejor.distancia = posicionActual - j;
+                mejor.longitud = longitudActual;
+                if (posicionActual + longitudActual < ventana.size()) {
+                    mejor.siguiente_caracter = ventana[posicionActual + longitudActual];
+                } else {
+                    mejor.siguiente_caracter = '\0';
+                }
+            }
         }
-        
-        // Si encontramos una repetición más grande que la anterior guardada
-        if (longitudActual > mejor.longitud) {
-            mejor.distancia = posicionActual - j;
-            mejor.longitud = longitudActual;
+        return mejor;
+    }
+}
+
+void Lz77::compress(std::istream& entrada, std::ostream& salida, std::function<void(size_t)> progress_callback) {
+    const size_t CHUNK_SIZE = 4 * 1024 * 1024; // 4MB
+    const size_t HISTORY_SIZE = MAX_VENTANA_BUSQUEDA;
+
+    vector<char> historial;
+    vector<char> buffer(CHUNK_SIZE);
+    size_t total_processed = 0;
+
+    while (entrada) {
+        entrada.read(buffer.data(), CHUNK_SIZE);
+        size_t bytes_read = entrada.gcount();
+        if (bytes_read == 0) break;
+
+        vector<char> ventana;
+        ventana.reserve(historial.size() + bytes_read);
+        ventana.insert(ventana.end(), historial.begin(), historial.end());
+        ventana.insert(ventana.end(), buffer.begin(), buffer.begin() + bytes_read);
+
+        uint32_t chunk_bytes_to_process = static_cast<uint32_t>(bytes_read);
+        salida.write(reinterpret_cast<const char*>(&chunk_bytes_to_process), sizeof(chunk_bytes_to_process));
+
+        int start_idx = historial.size();
+        int end_idx = ventana.size();
+        int i = start_idx;
+
+        while (i < end_idx) {
+            Tupla tupla = buscarMejorCoincidencia(ventana, i);
             
-            // El siguiente caracter es el que rompe la coincidencia
-            if (posicionActual + longitudActual < datos.size()) {
-                mejor.siguiente_caracter = datos[posicionActual + longitudActual];
-            } else {
-                mejor.siguiente_caracter = '\0'; // Fin del archivo
-            }
+            salida.write(reinterpret_cast<const char*>(&tupla.distancia), sizeof(tupla.distancia));
+            salida.write(reinterpret_cast<const char*>(&tupla.longitud), sizeof(tupla.longitud));
+            salida.write(&tupla.siguiente_caracter, sizeof(tupla.siguiente_caracter));
+            
+            i += tupla.longitud + 1;
         }
-    }
-    
-    return mejor;
-}
 
-} // namespace
+        size_t new_history_size = min(ventana.size(), HISTORY_SIZE);
+        historial.assign(ventana.end() - new_history_size, ventana.end());
 
-void Lz77::compress(std::istream& entrada, std::ostream& salida) {
-    // Cargar todo el archivo en memoria (para simplificar la búsqueda)
-    vector<char> datos((istreambuf_iterator<char>(entrada)), istreambuf_iterator<char>());
-    
-    int i = 0;
-    while (i < datos.size()) {
-        Tupla tupla = buscarMejorCoincidencia(datos, i);
-        
-        // Escribir la tupla al disco duro (2 bytes + 1 byte + 1 byte = 4 bytes)
-        salida.write(reinterpret_cast<const char*>(&tupla.distancia), sizeof(tupla.distancia));
-        salida.write(reinterpret_cast<const char*>(&tupla.longitud), sizeof(tupla.longitud));
-        salida.write(&tupla.siguiente_caracter, sizeof(tupla.siguiente_caracter));
-        
-        // Avanzamos la posición actual saltándonos lo que acabamos de comprimir + 1 (el nuevo caracter)
-        i += tupla.longitud + 1;
+        total_processed += bytes_read;
+        if (progress_callback) progress_callback(total_processed);
     }
 }
 
-void Lz77::decompress(std::istream& entrada, std::ostream& salida) {
-    vector<char> textoDescomprimido;
-    Tupla tupla;
+void Lz77::decompress(std::istream& entrada, std::ostream& salida, std::function<void(size_t)> progress_callback) {
+    const size_t HISTORY_SIZE = MAX_VENTANA_BUSQUEDA;
+    vector<char> historial;
+    size_t total_processed = 0;
 
-    // Leer el archivo comprimido tupla por tupla (saltando de 4 en 4 bytes)
-    while (entrada.read(reinterpret_cast<char*>(&tupla.distancia), sizeof(tupla.distancia))) {
-        entrada.read(reinterpret_cast<char*>(&tupla.longitud), sizeof(tupla.longitud));
-        entrada.read(&tupla.siguiente_caracter, sizeof(tupla.siguiente_caracter));
+    uint32_t chunk_bytes_to_process;
+    while (entrada.read(reinterpret_cast<char*>(&chunk_bytes_to_process), sizeof(chunk_bytes_to_process))) {
+        vector<char> chunk_decodificado;
+        chunk_decodificado.reserve(chunk_bytes_to_process);
 
-        // Si la distancia es > 0, significa que debemos copiar del pasado
-        if (tupla.distancia > 0) {
-            int inicioCopia = textoDescomprimido.size() - tupla.distancia;
-            for (int k = 0; k < tupla.longitud; ++k) {
-                textoDescomprimido.push_back(textoDescomprimido[inicioCopia + k]);
+        int bytes_escritos = 0;
+        while (bytes_escritos < chunk_bytes_to_process) {
+            Tupla tupla;
+            if (!entrada.read(reinterpret_cast<char*>(&tupla.distancia), sizeof(tupla.distancia))) break;
+            entrada.read(reinterpret_cast<char*>(&tupla.longitud), sizeof(tupla.longitud));
+            entrada.read(&tupla.siguiente_caracter, sizeof(tupla.siguiente_caracter));
+
+            if (tupla.distancia > 0) {
+                int back_dist = tupla.distancia;
+                for (int k = 0; k < tupla.longitud; ++k) {
+                    char copiado;
+                    if (back_dist > chunk_decodificado.size()) {
+                        int hist_idx = historial.size() - (back_dist - chunk_decodificado.size());
+                        copiado = historial[hist_idx];
+                    } else {
+                        int local_idx = chunk_decodificado.size() - back_dist;
+                        copiado = chunk_decodificado[local_idx];
+                    }
+                    chunk_decodificado.push_back(copiado);
+                    bytes_escritos++;
+                }
+            }
+            
+            if (bytes_escritos < chunk_bytes_to_process) {
+                chunk_decodificado.push_back(tupla.siguiente_caracter);
+                bytes_escritos++;
             }
         }
-        
-        // Siempre añadimos el caracter nuevo al final
-        if (tupla.siguiente_caracter != '\0' || entrada.peek() != EOF) {
-            textoDescomprimido.push_back(tupla.siguiente_caracter);
-        }
-    }
 
-    // Escribir todo el texto reconstruido al archivo
-    salida.write(textoDescomprimido.data(), textoDescomprimido.size());
+        salida.write(chunk_decodificado.data(), chunk_decodificado.size());
+
+        vector<char> ventana;
+        ventana.reserve(historial.size() + chunk_decodificado.size());
+        ventana.insert(ventana.end(), historial.begin(), historial.end());
+        ventana.insert(ventana.end(), chunk_decodificado.begin(), chunk_decodificado.end());
+
+        size_t new_history_size = min(ventana.size(), HISTORY_SIZE);
+        historial.assign(ventana.end() - new_history_size, ventana.end());
+
+        total_processed += chunk_bytes_to_process;
+        if (progress_callback) progress_callback(total_processed);
+    }
 }
