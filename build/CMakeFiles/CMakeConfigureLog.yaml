@@ -2,358 +2,40 @@
 ---
 events:
   -
-    kind: "find-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
-      - "CMakeLists.txt:2 (project)"
-    mode: "program"
-    variable: "CMAKE_UNAME"
-    description: "Path to a program."
-    settings:
-      SearchFramework: "NEVER"
-      SearchAppBundle: "NEVER"
-      CMAKE_FIND_USE_CMAKE_PATH: true
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "uname"
-    candidate_directories:
-      - "/home/epadev/.opencode/bin/"
-      - "/home/epadev/.local/bin/"
-      - "/home/epadev/.local/share/pnpm/"
-      - "/opt/brew/bin/"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/"
-      - "/home/epadev/Android/Sdk/emulator/"
-      - "/home/epadev/Android/Sdk/platform-tools/"
-      - "/home/epadev/.bun/bin/"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/"
-      - "/home/epadev/.config/composer/vendor/bin/"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/"
-      - "/usr/local/sbin/"
-      - "/usr/local/bin/"
-      - "/usr/bin/"
-      - "/var/lib/flatpak/exports/bin/"
-      - "/usr/lib/jvm/default/bin/"
-      - "/usr/bin/site_perl/"
-      - "/usr/bin/vendor_perl/"
-      - "/usr/bin/core_perl/"
-      - "/usr/share/dotnet/"
-      - "/home/epadev/.lmstudio/bin/"
-      - "/opt/gradle/bin/"
-      - "/opt/flutter/bin/"
-      - "/bin/"
-    searched_directories:
-      - "/home/epadev/.opencode/bin/uname"
-      - "/home/epadev/.local/bin/uname"
-      - "/home/epadev/.local/share/pnpm/uname"
-      - "/opt/brew/bin/uname"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/uname"
-      - "/home/epadev/Android/Sdk/emulator/uname"
-      - "/home/epadev/Android/Sdk/platform-tools/uname"
-      - "/home/epadev/.bun/bin/uname"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/uname"
-      - "/home/epadev/.config/composer/vendor/bin/uname"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/uname"
-      - "/usr/local/sbin/uname"
-      - "/usr/local/bin/uname"
-    found: "/usr/bin/uname"
-    search_context:
-      ENV{PATH}:
-        - "/home/epadev/.opencode/bin"
-        - "/home/epadev/.local/bin"
-        - "/home/epadev/.local/share/pnpm"
-        - "/opt/brew/bin"
-        - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/.bun/bin"
-        - "/run/user/1001/fnm_multishells/30797_1774152200897/bin"
-        - "/home/epadev/.config/composer/vendor/bin"
-        - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin"
-        - "/usr/local/sbin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/var/lib/flatpak/exports/bin"
-        - "/usr/lib/jvm/default/bin"
-        - "/usr/bin/site_perl"
-        - "/usr/bin/vendor_perl"
-        - "/usr/bin/core_perl"
-        - "/usr/share/dotnet"
-        - "/home/epadev/.lmstudio/bin"
-        - "/opt/gradle/bin"
-        - "/opt/flutter/bin"
-  -
     kind: "message-v1"
     backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineSystem.cmake:212 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineSystem.cmake:205 (message)"
       - "CMakeLists.txt:2 (project)"
     message: |
-      The system is: Linux - 6.19.8-arch1-1 - x86_64
-  -
-    kind: "find-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeUnixFindMake.cmake:5 (find_program)"
-      - "CMakeLists.txt:2 (project)"
-    mode: "program"
-    variable: "CMAKE_MAKE_PROGRAM"
-    description: "Path to a program."
-    settings:
-      SearchFramework: "NEVER"
-      SearchAppBundle: "NEVER"
-      CMAKE_FIND_USE_CMAKE_PATH: true
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "gmake"
-      - "make"
-      - "smake"
-    candidate_directories:
-      - "/home/epadev/.opencode/bin/"
-      - "/home/epadev/.local/bin/"
-      - "/home/epadev/.local/share/pnpm/"
-      - "/opt/brew/bin/"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/"
-      - "/home/epadev/Android/Sdk/emulator/"
-      - "/home/epadev/Android/Sdk/platform-tools/"
-      - "/home/epadev/.bun/bin/"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/"
-      - "/home/epadev/.config/composer/vendor/bin/"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/"
-      - "/usr/local/sbin/"
-      - "/usr/local/bin/"
-      - "/usr/bin/"
-      - "/var/lib/flatpak/exports/bin/"
-      - "/usr/lib/jvm/default/bin/"
-      - "/usr/bin/site_perl/"
-      - "/usr/bin/vendor_perl/"
-      - "/usr/bin/core_perl/"
-      - "/usr/share/dotnet/"
-      - "/home/epadev/.lmstudio/bin/"
-      - "/opt/gradle/bin/"
-      - "/opt/flutter/bin/"
-    searched_directories:
-      - "/home/epadev/.opencode/bin/gmake"
-      - "/home/epadev/.local/bin/gmake"
-      - "/home/epadev/.local/share/pnpm/gmake"
-      - "/opt/brew/bin/gmake"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/gmake"
-      - "/home/epadev/Android/Sdk/emulator/gmake"
-      - "/home/epadev/Android/Sdk/platform-tools/gmake"
-      - "/home/epadev/.bun/bin/gmake"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/gmake"
-      - "/home/epadev/.config/composer/vendor/bin/gmake"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/gmake"
-      - "/usr/local/sbin/gmake"
-      - "/usr/local/bin/gmake"
-      - "/usr/bin/gmake"
-      - "/var/lib/flatpak/exports/bin/gmake"
-      - "/usr/lib/jvm/default/bin/gmake"
-      - "/usr/bin/site_perl/gmake"
-      - "/usr/bin/vendor_perl/gmake"
-      - "/usr/bin/core_perl/gmake"
-      - "/usr/share/dotnet/gmake"
-      - "/home/epadev/.lmstudio/bin/gmake"
-      - "/opt/gradle/bin/gmake"
-      - "/opt/flutter/bin/gmake"
-      - "/home/epadev/.opencode/bin/make"
-      - "/home/epadev/.local/bin/make"
-      - "/home/epadev/.local/share/pnpm/make"
-      - "/opt/brew/bin/make"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/make"
-      - "/home/epadev/Android/Sdk/emulator/make"
-      - "/home/epadev/Android/Sdk/platform-tools/make"
-      - "/home/epadev/.bun/bin/make"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/make"
-      - "/home/epadev/.config/composer/vendor/bin/make"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/make"
-      - "/usr/local/sbin/make"
-      - "/usr/local/bin/make"
-    found: "/usr/bin/make"
-    search_context:
-      ENV{PATH}:
-        - "/home/epadev/.opencode/bin"
-        - "/home/epadev/.local/bin"
-        - "/home/epadev/.local/share/pnpm"
-        - "/opt/brew/bin"
-        - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/.bun/bin"
-        - "/run/user/1001/fnm_multishells/30797_1774152200897/bin"
-        - "/home/epadev/.config/composer/vendor/bin"
-        - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin"
-        - "/usr/local/sbin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/var/lib/flatpak/exports/bin"
-        - "/usr/lib/jvm/default/bin"
-        - "/usr/bin/site_perl"
-        - "/usr/bin/vendor_perl"
-        - "/usr/bin/core_perl"
-        - "/usr/share/dotnet"
-        - "/home/epadev/.lmstudio/bin"
-        - "/opt/gradle/bin"
-        - "/opt/flutter/bin"
-  -
-    kind: "find-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompiler.cmake:73 (find_program)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:69 (_cmake_find_compiler)"
-      - "CMakeLists.txt:2 (project)"
-    mode: "program"
-    variable: "CMAKE_CXX_COMPILER"
-    description: "CXX compiler"
-    settings:
-      SearchFramework: "NEVER"
-      SearchAppBundle: "NEVER"
-      CMAKE_FIND_USE_CMAKE_PATH: true
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "c++"
-      - "CC"
-      - "g++"
-      - "aCC"
-      - "cl"
-      - "bcc"
-      - "xlC"
-      - "icpx"
-      - "icx"
-      - "clang++"
-    candidate_directories:
-      - "/home/epadev/.opencode/bin/"
-      - "/home/epadev/.local/bin/"
-      - "/home/epadev/.local/share/pnpm/"
-      - "/opt/brew/bin/"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/"
-      - "/home/epadev/Android/Sdk/emulator/"
-      - "/home/epadev/Android/Sdk/platform-tools/"
-      - "/home/epadev/.bun/bin/"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/"
-      - "/home/epadev/.config/composer/vendor/bin/"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/"
-      - "/usr/local/sbin/"
-      - "/usr/local/bin/"
-      - "/usr/bin/"
-      - "/var/lib/flatpak/exports/bin/"
-      - "/usr/lib/jvm/default/bin/"
-      - "/usr/bin/site_perl/"
-      - "/usr/bin/vendor_perl/"
-      - "/usr/bin/core_perl/"
-      - "/usr/share/dotnet/"
-      - "/home/epadev/.lmstudio/bin/"
-      - "/opt/gradle/bin/"
-      - "/opt/flutter/bin/"
-    searched_directories:
-      - "/home/epadev/.opencode/bin/c++"
-      - "/home/epadev/.local/bin/c++"
-      - "/home/epadev/.local/share/pnpm/c++"
-      - "/opt/brew/bin/c++"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/c++"
-      - "/home/epadev/Android/Sdk/emulator/c++"
-      - "/home/epadev/Android/Sdk/platform-tools/c++"
-      - "/home/epadev/.bun/bin/c++"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/c++"
-      - "/home/epadev/.config/composer/vendor/bin/c++"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/c++"
-      - "/usr/local/sbin/c++"
-      - "/usr/local/bin/c++"
-    found: "/usr/bin/c++"
-    search_context:
-      ENV{PATH}:
-        - "/home/epadev/.opencode/bin"
-        - "/home/epadev/.local/bin"
-        - "/home/epadev/.local/share/pnpm"
-        - "/opt/brew/bin"
-        - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/.bun/bin"
-        - "/run/user/1001/fnm_multishells/30797_1774152200897/bin"
-        - "/home/epadev/.config/composer/vendor/bin"
-        - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin"
-        - "/usr/local/sbin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/var/lib/flatpak/exports/bin"
-        - "/usr/lib/jvm/default/bin"
-        - "/usr/bin/site_perl"
-        - "/usr/bin/vendor_perl"
-        - "/usr/bin/core_perl"
-        - "/usr/share/dotnet"
-        - "/home/epadev/.lmstudio/bin"
-        - "/opt/gradle/bin"
-        - "/opt/flutter/bin"
-  -
-    kind: "find-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
-      - "CMakeLists.txt:2 (project)"
-    mode: "file"
-    variable: "src_in"
-    description: "Path to a file."
-    settings:
-      SearchFramework: "NEVER"
-      SearchAppBundle: "NEVER"
-      CMAKE_FIND_USE_CMAKE_PATH: true
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "CMakeCXXCompilerId.cpp.in"
-    candidate_directories:
-      - "/usr/share/cmake/Modules/"
-    found: "/usr/share/cmake/Modules/CMakeCXXCompilerId.cpp.in"
-    search_context:
-      ENV{PATH}:
-        - "/home/epadev/.opencode/bin"
-        - "/home/epadev/.local/bin"
-        - "/home/epadev/.local/share/pnpm"
-        - "/opt/brew/bin"
-        - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/.bun/bin"
-        - "/run/user/1001/fnm_multishells/30797_1774152200897/bin"
-        - "/home/epadev/.config/composer/vendor/bin"
-        - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin"
-        - "/usr/local/sbin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/var/lib/flatpak/exports/bin"
-        - "/usr/lib/jvm/default/bin"
-        - "/usr/bin/site_perl"
-        - "/usr/bin/vendor_perl"
-        - "/usr/bin/core_perl"
-        - "/usr/share/dotnet"
-        - "/home/epadev/.lmstudio/bin"
-        - "/opt/gradle/bin"
-        - "/opt/flutter/bin"
+      The system is: Linux - 6.17.1-300.fc43.x86_64 - x86_64
   -
     kind: "message-v1"
     backtrace:
       - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
       - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /usr/bin/cc 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is GNU, found in:
+        /home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/3.31.11/CompilerIdC/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
@@ -368,1136 +50,256 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
       
       The CXX compiler identification is GNU, found in:
-        /home/epadev/Documents/myDrive/proyects/compresor-file/build/CMakeFiles/4.2.3/CompilerIdCXX/a.out
+        /home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/3.31.11/CompilerIdCXX/a.out
       
-  -
-    kind: "find-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
-    mode: "program"
-    variable: "CMAKE_AR"
-    description: "Path to a program."
-    settings:
-      SearchFramework: "NEVER"
-      SearchAppBundle: "NEVER"
-      CMAKE_FIND_USE_CMAKE_PATH: false
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "ar"
-    candidate_directories:
-      - "/usr/bin/"
-      - "/home/epadev/.opencode/bin/"
-      - "/home/epadev/.local/bin/"
-      - "/home/epadev/.local/share/pnpm/"
-      - "/opt/brew/bin/"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/"
-      - "/home/epadev/Android/Sdk/emulator/"
-      - "/home/epadev/Android/Sdk/platform-tools/"
-      - "/home/epadev/.bun/bin/"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/"
-      - "/home/epadev/.config/composer/vendor/bin/"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/"
-      - "/usr/local/sbin/"
-      - "/usr/local/bin/"
-      - "/var/lib/flatpak/exports/bin/"
-      - "/usr/lib/jvm/default/bin/"
-      - "/usr/bin/site_perl/"
-      - "/usr/bin/vendor_perl/"
-      - "/usr/bin/core_perl/"
-      - "/usr/share/dotnet/"
-      - "/home/epadev/.lmstudio/bin/"
-      - "/opt/gradle/bin/"
-      - "/opt/flutter/bin/"
-    found: "/usr/bin/ar"
-    search_context:
-      ENV{PATH}:
-        - "/home/epadev/.opencode/bin"
-        - "/home/epadev/.local/bin"
-        - "/home/epadev/.local/share/pnpm"
-        - "/opt/brew/bin"
-        - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/.bun/bin"
-        - "/run/user/1001/fnm_multishells/30797_1774152200897/bin"
-        - "/home/epadev/.config/composer/vendor/bin"
-        - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin"
-        - "/usr/local/sbin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/var/lib/flatpak/exports/bin"
-        - "/usr/lib/jvm/default/bin"
-        - "/usr/bin/site_perl"
-        - "/usr/bin/vendor_perl"
-        - "/usr/bin/core_perl"
-        - "/usr/share/dotnet"
-        - "/home/epadev/.lmstudio/bin"
-        - "/opt/gradle/bin"
-        - "/opt/flutter/bin"
-  -
-    kind: "find-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
-    mode: "program"
-    variable: "CMAKE_RANLIB"
-    description: "Path to a program."
-    settings:
-      SearchFramework: "NEVER"
-      SearchAppBundle: "NEVER"
-      CMAKE_FIND_USE_CMAKE_PATH: false
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "ranlib"
-    candidate_directories:
-      - "/usr/bin/"
-      - "/home/epadev/.opencode/bin/"
-      - "/home/epadev/.local/bin/"
-      - "/home/epadev/.local/share/pnpm/"
-      - "/opt/brew/bin/"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/"
-      - "/home/epadev/Android/Sdk/emulator/"
-      - "/home/epadev/Android/Sdk/platform-tools/"
-      - "/home/epadev/.bun/bin/"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/"
-      - "/home/epadev/.config/composer/vendor/bin/"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/"
-      - "/usr/local/sbin/"
-      - "/usr/local/bin/"
-      - "/var/lib/flatpak/exports/bin/"
-      - "/usr/lib/jvm/default/bin/"
-      - "/usr/bin/site_perl/"
-      - "/usr/bin/vendor_perl/"
-      - "/usr/bin/core_perl/"
-      - "/usr/share/dotnet/"
-      - "/home/epadev/.lmstudio/bin/"
-      - "/opt/gradle/bin/"
-      - "/opt/flutter/bin/"
-    found: "/usr/bin/ranlib"
-    search_context:
-      ENV{PATH}:
-        - "/home/epadev/.opencode/bin"
-        - "/home/epadev/.local/bin"
-        - "/home/epadev/.local/share/pnpm"
-        - "/opt/brew/bin"
-        - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/.bun/bin"
-        - "/run/user/1001/fnm_multishells/30797_1774152200897/bin"
-        - "/home/epadev/.config/composer/vendor/bin"
-        - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin"
-        - "/usr/local/sbin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/var/lib/flatpak/exports/bin"
-        - "/usr/lib/jvm/default/bin"
-        - "/usr/bin/site_perl"
-        - "/usr/bin/vendor_perl"
-        - "/usr/bin/core_perl"
-        - "/usr/share/dotnet"
-        - "/home/epadev/.lmstudio/bin"
-        - "/opt/gradle/bin"
-        - "/opt/flutter/bin"
-  -
-    kind: "find-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
-    mode: "program"
-    variable: "CMAKE_STRIP"
-    description: "Path to a program."
-    settings:
-      SearchFramework: "NEVER"
-      SearchAppBundle: "NEVER"
-      CMAKE_FIND_USE_CMAKE_PATH: false
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "strip"
-    candidate_directories:
-      - "/usr/bin/"
-      - "/home/epadev/.opencode/bin/"
-      - "/home/epadev/.local/bin/"
-      - "/home/epadev/.local/share/pnpm/"
-      - "/opt/brew/bin/"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/"
-      - "/home/epadev/Android/Sdk/emulator/"
-      - "/home/epadev/Android/Sdk/platform-tools/"
-      - "/home/epadev/.bun/bin/"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/"
-      - "/home/epadev/.config/composer/vendor/bin/"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/"
-      - "/usr/local/sbin/"
-      - "/usr/local/bin/"
-      - "/var/lib/flatpak/exports/bin/"
-      - "/usr/lib/jvm/default/bin/"
-      - "/usr/bin/site_perl/"
-      - "/usr/bin/vendor_perl/"
-      - "/usr/bin/core_perl/"
-      - "/usr/share/dotnet/"
-      - "/home/epadev/.lmstudio/bin/"
-      - "/opt/gradle/bin/"
-      - "/opt/flutter/bin/"
-    found: "/usr/bin/strip"
-    search_context:
-      ENV{PATH}:
-        - "/home/epadev/.opencode/bin"
-        - "/home/epadev/.local/bin"
-        - "/home/epadev/.local/share/pnpm"
-        - "/opt/brew/bin"
-        - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/.bun/bin"
-        - "/run/user/1001/fnm_multishells/30797_1774152200897/bin"
-        - "/home/epadev/.config/composer/vendor/bin"
-        - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin"
-        - "/usr/local/sbin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/var/lib/flatpak/exports/bin"
-        - "/usr/lib/jvm/default/bin"
-        - "/usr/bin/site_perl"
-        - "/usr/bin/vendor_perl"
-        - "/usr/bin/core_perl"
-        - "/usr/share/dotnet"
-        - "/home/epadev/.lmstudio/bin"
-        - "/opt/gradle/bin"
-        - "/opt/flutter/bin"
-  -
-    kind: "find-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
-    mode: "program"
-    variable: "CMAKE_LINKER"
-    description: "Path to a program."
-    settings:
-      SearchFramework: "NEVER"
-      SearchAppBundle: "NEVER"
-      CMAKE_FIND_USE_CMAKE_PATH: false
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "ld"
-    candidate_directories:
-      - "/usr/bin/"
-      - "/home/epadev/.opencode/bin/"
-      - "/home/epadev/.local/bin/"
-      - "/home/epadev/.local/share/pnpm/"
-      - "/opt/brew/bin/"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/"
-      - "/home/epadev/Android/Sdk/emulator/"
-      - "/home/epadev/Android/Sdk/platform-tools/"
-      - "/home/epadev/.bun/bin/"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/"
-      - "/home/epadev/.config/composer/vendor/bin/"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/"
-      - "/usr/local/sbin/"
-      - "/usr/local/bin/"
-      - "/var/lib/flatpak/exports/bin/"
-      - "/usr/lib/jvm/default/bin/"
-      - "/usr/bin/site_perl/"
-      - "/usr/bin/vendor_perl/"
-      - "/usr/bin/core_perl/"
-      - "/usr/share/dotnet/"
-      - "/home/epadev/.lmstudio/bin/"
-      - "/opt/gradle/bin/"
-      - "/opt/flutter/bin/"
-    found: "/usr/bin/ld"
-    search_context:
-      ENV{PATH}:
-        - "/home/epadev/.opencode/bin"
-        - "/home/epadev/.local/bin"
-        - "/home/epadev/.local/share/pnpm"
-        - "/opt/brew/bin"
-        - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/.bun/bin"
-        - "/run/user/1001/fnm_multishells/30797_1774152200897/bin"
-        - "/home/epadev/.config/composer/vendor/bin"
-        - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin"
-        - "/usr/local/sbin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/var/lib/flatpak/exports/bin"
-        - "/usr/lib/jvm/default/bin"
-        - "/usr/bin/site_perl"
-        - "/usr/bin/vendor_perl"
-        - "/usr/bin/core_perl"
-        - "/usr/share/dotnet"
-        - "/home/epadev/.lmstudio/bin"
-        - "/opt/gradle/bin"
-        - "/opt/flutter/bin"
-  -
-    kind: "find-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
-    mode: "program"
-    variable: "CMAKE_NM"
-    description: "Path to a program."
-    settings:
-      SearchFramework: "NEVER"
-      SearchAppBundle: "NEVER"
-      CMAKE_FIND_USE_CMAKE_PATH: false
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "nm"
-    candidate_directories:
-      - "/usr/bin/"
-      - "/home/epadev/.opencode/bin/"
-      - "/home/epadev/.local/bin/"
-      - "/home/epadev/.local/share/pnpm/"
-      - "/opt/brew/bin/"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/"
-      - "/home/epadev/Android/Sdk/emulator/"
-      - "/home/epadev/Android/Sdk/platform-tools/"
-      - "/home/epadev/.bun/bin/"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/"
-      - "/home/epadev/.config/composer/vendor/bin/"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/"
-      - "/usr/local/sbin/"
-      - "/usr/local/bin/"
-      - "/var/lib/flatpak/exports/bin/"
-      - "/usr/lib/jvm/default/bin/"
-      - "/usr/bin/site_perl/"
-      - "/usr/bin/vendor_perl/"
-      - "/usr/bin/core_perl/"
-      - "/usr/share/dotnet/"
-      - "/home/epadev/.lmstudio/bin/"
-      - "/opt/gradle/bin/"
-      - "/opt/flutter/bin/"
-    found: "/usr/bin/nm"
-    search_context:
-      ENV{PATH}:
-        - "/home/epadev/.opencode/bin"
-        - "/home/epadev/.local/bin"
-        - "/home/epadev/.local/share/pnpm"
-        - "/opt/brew/bin"
-        - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/.bun/bin"
-        - "/run/user/1001/fnm_multishells/30797_1774152200897/bin"
-        - "/home/epadev/.config/composer/vendor/bin"
-        - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin"
-        - "/usr/local/sbin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/var/lib/flatpak/exports/bin"
-        - "/usr/lib/jvm/default/bin"
-        - "/usr/bin/site_perl"
-        - "/usr/bin/vendor_perl"
-        - "/usr/bin/core_perl"
-        - "/usr/share/dotnet"
-        - "/home/epadev/.lmstudio/bin"
-        - "/opt/gradle/bin"
-        - "/opt/flutter/bin"
-  -
-    kind: "find-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
-    mode: "program"
-    variable: "CMAKE_OBJDUMP"
-    description: "Path to a program."
-    settings:
-      SearchFramework: "NEVER"
-      SearchAppBundle: "NEVER"
-      CMAKE_FIND_USE_CMAKE_PATH: false
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "objdump"
-    candidate_directories:
-      - "/usr/bin/"
-      - "/home/epadev/.opencode/bin/"
-      - "/home/epadev/.local/bin/"
-      - "/home/epadev/.local/share/pnpm/"
-      - "/opt/brew/bin/"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/"
-      - "/home/epadev/Android/Sdk/emulator/"
-      - "/home/epadev/Android/Sdk/platform-tools/"
-      - "/home/epadev/.bun/bin/"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/"
-      - "/home/epadev/.config/composer/vendor/bin/"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/"
-      - "/usr/local/sbin/"
-      - "/usr/local/bin/"
-      - "/var/lib/flatpak/exports/bin/"
-      - "/usr/lib/jvm/default/bin/"
-      - "/usr/bin/site_perl/"
-      - "/usr/bin/vendor_perl/"
-      - "/usr/bin/core_perl/"
-      - "/usr/share/dotnet/"
-      - "/home/epadev/.lmstudio/bin/"
-      - "/opt/gradle/bin/"
-      - "/opt/flutter/bin/"
-    found: "/usr/bin/objdump"
-    search_context:
-      ENV{PATH}:
-        - "/home/epadev/.opencode/bin"
-        - "/home/epadev/.local/bin"
-        - "/home/epadev/.local/share/pnpm"
-        - "/opt/brew/bin"
-        - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/.bun/bin"
-        - "/run/user/1001/fnm_multishells/30797_1774152200897/bin"
-        - "/home/epadev/.config/composer/vendor/bin"
-        - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin"
-        - "/usr/local/sbin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/var/lib/flatpak/exports/bin"
-        - "/usr/lib/jvm/default/bin"
-        - "/usr/bin/site_perl"
-        - "/usr/bin/vendor_perl"
-        - "/usr/bin/core_perl"
-        - "/usr/share/dotnet"
-        - "/home/epadev/.lmstudio/bin"
-        - "/opt/gradle/bin"
-        - "/opt/flutter/bin"
-  -
-    kind: "find-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
-    mode: "program"
-    variable: "CMAKE_OBJCOPY"
-    description: "Path to a program."
-    settings:
-      SearchFramework: "NEVER"
-      SearchAppBundle: "NEVER"
-      CMAKE_FIND_USE_CMAKE_PATH: false
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "objcopy"
-    candidate_directories:
-      - "/usr/bin/"
-      - "/home/epadev/.opencode/bin/"
-      - "/home/epadev/.local/bin/"
-      - "/home/epadev/.local/share/pnpm/"
-      - "/opt/brew/bin/"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/"
-      - "/home/epadev/Android/Sdk/emulator/"
-      - "/home/epadev/Android/Sdk/platform-tools/"
-      - "/home/epadev/.bun/bin/"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/"
-      - "/home/epadev/.config/composer/vendor/bin/"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/"
-      - "/usr/local/sbin/"
-      - "/usr/local/bin/"
-      - "/var/lib/flatpak/exports/bin/"
-      - "/usr/lib/jvm/default/bin/"
-      - "/usr/bin/site_perl/"
-      - "/usr/bin/vendor_perl/"
-      - "/usr/bin/core_perl/"
-      - "/usr/share/dotnet/"
-      - "/home/epadev/.lmstudio/bin/"
-      - "/opt/gradle/bin/"
-      - "/opt/flutter/bin/"
-    found: "/usr/bin/objcopy"
-    search_context:
-      ENV{PATH}:
-        - "/home/epadev/.opencode/bin"
-        - "/home/epadev/.local/bin"
-        - "/home/epadev/.local/share/pnpm"
-        - "/opt/brew/bin"
-        - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/.bun/bin"
-        - "/run/user/1001/fnm_multishells/30797_1774152200897/bin"
-        - "/home/epadev/.config/composer/vendor/bin"
-        - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin"
-        - "/usr/local/sbin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/var/lib/flatpak/exports/bin"
-        - "/usr/lib/jvm/default/bin"
-        - "/usr/bin/site_perl"
-        - "/usr/bin/vendor_perl"
-        - "/usr/bin/core_perl"
-        - "/usr/share/dotnet"
-        - "/home/epadev/.lmstudio/bin"
-        - "/opt/gradle/bin"
-        - "/opt/flutter/bin"
-  -
-    kind: "find-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
-    mode: "program"
-    variable: "CMAKE_READELF"
-    description: "Path to a program."
-    settings:
-      SearchFramework: "NEVER"
-      SearchAppBundle: "NEVER"
-      CMAKE_FIND_USE_CMAKE_PATH: false
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "readelf"
-    candidate_directories:
-      - "/usr/bin/"
-      - "/home/epadev/.opencode/bin/"
-      - "/home/epadev/.local/bin/"
-      - "/home/epadev/.local/share/pnpm/"
-      - "/opt/brew/bin/"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/"
-      - "/home/epadev/Android/Sdk/emulator/"
-      - "/home/epadev/Android/Sdk/platform-tools/"
-      - "/home/epadev/.bun/bin/"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/"
-      - "/home/epadev/.config/composer/vendor/bin/"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/"
-      - "/usr/local/sbin/"
-      - "/usr/local/bin/"
-      - "/var/lib/flatpak/exports/bin/"
-      - "/usr/lib/jvm/default/bin/"
-      - "/usr/bin/site_perl/"
-      - "/usr/bin/vendor_perl/"
-      - "/usr/bin/core_perl/"
-      - "/usr/share/dotnet/"
-      - "/home/epadev/.lmstudio/bin/"
-      - "/opt/gradle/bin/"
-      - "/opt/flutter/bin/"
-    found: "/usr/bin/readelf"
-    search_context:
-      ENV{PATH}:
-        - "/home/epadev/.opencode/bin"
-        - "/home/epadev/.local/bin"
-        - "/home/epadev/.local/share/pnpm"
-        - "/opt/brew/bin"
-        - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/.bun/bin"
-        - "/run/user/1001/fnm_multishells/30797_1774152200897/bin"
-        - "/home/epadev/.config/composer/vendor/bin"
-        - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin"
-        - "/usr/local/sbin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/var/lib/flatpak/exports/bin"
-        - "/usr/lib/jvm/default/bin"
-        - "/usr/bin/site_perl"
-        - "/usr/bin/vendor_perl"
-        - "/usr/bin/core_perl"
-        - "/usr/share/dotnet"
-        - "/home/epadev/.lmstudio/bin"
-        - "/opt/gradle/bin"
-        - "/opt/flutter/bin"
-  -
-    kind: "find-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
-    mode: "program"
-    variable: "CMAKE_DLLTOOL"
-    description: "Path to a program."
-    settings:
-      SearchFramework: "NEVER"
-      SearchAppBundle: "NEVER"
-      CMAKE_FIND_USE_CMAKE_PATH: false
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "dlltool"
-    candidate_directories:
-      - "/usr/bin/"
-      - "/home/epadev/.opencode/bin/"
-      - "/home/epadev/.local/bin/"
-      - "/home/epadev/.local/share/pnpm/"
-      - "/opt/brew/bin/"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/"
-      - "/home/epadev/Android/Sdk/emulator/"
-      - "/home/epadev/Android/Sdk/platform-tools/"
-      - "/home/epadev/.bun/bin/"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/"
-      - "/home/epadev/.config/composer/vendor/bin/"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/"
-      - "/usr/local/sbin/"
-      - "/usr/local/bin/"
-      - "/var/lib/flatpak/exports/bin/"
-      - "/usr/lib/jvm/default/bin/"
-      - "/usr/bin/site_perl/"
-      - "/usr/bin/vendor_perl/"
-      - "/usr/bin/core_perl/"
-      - "/usr/share/dotnet/"
-      - "/home/epadev/.lmstudio/bin/"
-      - "/opt/gradle/bin/"
-      - "/opt/flutter/bin/"
-    searched_directories:
-      - "/usr/bin/dlltool"
-      - "/home/epadev/.opencode/bin/dlltool"
-      - "/home/epadev/.local/bin/dlltool"
-      - "/home/epadev/.local/share/pnpm/dlltool"
-      - "/opt/brew/bin/dlltool"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/dlltool"
-      - "/home/epadev/Android/Sdk/emulator/dlltool"
-      - "/home/epadev/Android/Sdk/platform-tools/dlltool"
-      - "/home/epadev/.bun/bin/dlltool"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/dlltool"
-      - "/home/epadev/.config/composer/vendor/bin/dlltool"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/dlltool"
-      - "/usr/local/sbin/dlltool"
-      - "/usr/local/bin/dlltool"
-      - "/var/lib/flatpak/exports/bin/dlltool"
-      - "/usr/lib/jvm/default/bin/dlltool"
-      - "/usr/bin/site_perl/dlltool"
-      - "/usr/bin/vendor_perl/dlltool"
-      - "/usr/bin/core_perl/dlltool"
-      - "/usr/share/dotnet/dlltool"
-      - "/home/epadev/.lmstudio/bin/dlltool"
-      - "/opt/gradle/bin/dlltool"
-      - "/opt/flutter/bin/dlltool"
-    found: false
-    search_context:
-      ENV{PATH}:
-        - "/home/epadev/.opencode/bin"
-        - "/home/epadev/.local/bin"
-        - "/home/epadev/.local/share/pnpm"
-        - "/opt/brew/bin"
-        - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/.bun/bin"
-        - "/run/user/1001/fnm_multishells/30797_1774152200897/bin"
-        - "/home/epadev/.config/composer/vendor/bin"
-        - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin"
-        - "/usr/local/sbin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/var/lib/flatpak/exports/bin"
-        - "/usr/lib/jvm/default/bin"
-        - "/usr/bin/site_perl"
-        - "/usr/bin/vendor_perl"
-        - "/usr/bin/core_perl"
-        - "/usr/share/dotnet"
-        - "/home/epadev/.lmstudio/bin"
-        - "/opt/gradle/bin"
-        - "/opt/flutter/bin"
-  -
-    kind: "find-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
-    mode: "program"
-    variable: "CMAKE_ADDR2LINE"
-    description: "Path to a program."
-    settings:
-      SearchFramework: "NEVER"
-      SearchAppBundle: "NEVER"
-      CMAKE_FIND_USE_CMAKE_PATH: false
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "addr2line"
-    candidate_directories:
-      - "/usr/bin/"
-      - "/home/epadev/.opencode/bin/"
-      - "/home/epadev/.local/bin/"
-      - "/home/epadev/.local/share/pnpm/"
-      - "/opt/brew/bin/"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/"
-      - "/home/epadev/Android/Sdk/emulator/"
-      - "/home/epadev/Android/Sdk/platform-tools/"
-      - "/home/epadev/.bun/bin/"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/"
-      - "/home/epadev/.config/composer/vendor/bin/"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/"
-      - "/usr/local/sbin/"
-      - "/usr/local/bin/"
-      - "/var/lib/flatpak/exports/bin/"
-      - "/usr/lib/jvm/default/bin/"
-      - "/usr/bin/site_perl/"
-      - "/usr/bin/vendor_perl/"
-      - "/usr/bin/core_perl/"
-      - "/usr/share/dotnet/"
-      - "/home/epadev/.lmstudio/bin/"
-      - "/opt/gradle/bin/"
-      - "/opt/flutter/bin/"
-    found: "/usr/bin/addr2line"
-    search_context:
-      ENV{PATH}:
-        - "/home/epadev/.opencode/bin"
-        - "/home/epadev/.local/bin"
-        - "/home/epadev/.local/share/pnpm"
-        - "/opt/brew/bin"
-        - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/.bun/bin"
-        - "/run/user/1001/fnm_multishells/30797_1774152200897/bin"
-        - "/home/epadev/.config/composer/vendor/bin"
-        - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin"
-        - "/usr/local/sbin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/var/lib/flatpak/exports/bin"
-        - "/usr/lib/jvm/default/bin"
-        - "/usr/bin/site_perl"
-        - "/usr/bin/vendor_perl"
-        - "/usr/bin/core_perl"
-        - "/usr/share/dotnet"
-        - "/home/epadev/.lmstudio/bin"
-        - "/opt/gradle/bin"
-        - "/opt/flutter/bin"
-  -
-    kind: "find-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/CMakeFindBinUtils.cmake:243 (find_program)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:206 (include)"
-      - "CMakeLists.txt:2 (project)"
-    mode: "program"
-    variable: "CMAKE_TAPI"
-    description: "Path to a program."
-    settings:
-      SearchFramework: "NEVER"
-      SearchAppBundle: "NEVER"
-      CMAKE_FIND_USE_CMAKE_PATH: false
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "tapi"
-    candidate_directories:
-      - "/usr/bin/"
-      - "/home/epadev/.opencode/bin/"
-      - "/home/epadev/.local/bin/"
-      - "/home/epadev/.local/share/pnpm/"
-      - "/opt/brew/bin/"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/"
-      - "/home/epadev/Android/Sdk/emulator/"
-      - "/home/epadev/Android/Sdk/platform-tools/"
-      - "/home/epadev/.bun/bin/"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/"
-      - "/home/epadev/.config/composer/vendor/bin/"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/"
-      - "/usr/local/sbin/"
-      - "/usr/local/bin/"
-      - "/var/lib/flatpak/exports/bin/"
-      - "/usr/lib/jvm/default/bin/"
-      - "/usr/bin/site_perl/"
-      - "/usr/bin/vendor_perl/"
-      - "/usr/bin/core_perl/"
-      - "/usr/share/dotnet/"
-      - "/home/epadev/.lmstudio/bin/"
-      - "/opt/gradle/bin/"
-      - "/opt/flutter/bin/"
-    searched_directories:
-      - "/usr/bin/tapi"
-      - "/home/epadev/.opencode/bin/tapi"
-      - "/home/epadev/.local/bin/tapi"
-      - "/home/epadev/.local/share/pnpm/tapi"
-      - "/opt/brew/bin/tapi"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/tapi"
-      - "/home/epadev/Android/Sdk/emulator/tapi"
-      - "/home/epadev/Android/Sdk/platform-tools/tapi"
-      - "/home/epadev/.bun/bin/tapi"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/tapi"
-      - "/home/epadev/.config/composer/vendor/bin/tapi"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/tapi"
-      - "/usr/local/sbin/tapi"
-      - "/usr/local/bin/tapi"
-      - "/var/lib/flatpak/exports/bin/tapi"
-      - "/usr/lib/jvm/default/bin/tapi"
-      - "/usr/bin/site_perl/tapi"
-      - "/usr/bin/vendor_perl/tapi"
-      - "/usr/bin/core_perl/tapi"
-      - "/usr/share/dotnet/tapi"
-      - "/home/epadev/.lmstudio/bin/tapi"
-      - "/opt/gradle/bin/tapi"
-      - "/opt/flutter/bin/tapi"
-    found: false
-    search_context:
-      ENV{PATH}:
-        - "/home/epadev/.opencode/bin"
-        - "/home/epadev/.local/bin"
-        - "/home/epadev/.local/share/pnpm"
-        - "/opt/brew/bin"
-        - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/.bun/bin"
-        - "/run/user/1001/fnm_multishells/30797_1774152200897/bin"
-        - "/home/epadev/.config/composer/vendor/bin"
-        - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin"
-        - "/usr/local/sbin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/var/lib/flatpak/exports/bin"
-        - "/usr/lib/jvm/default/bin"
-        - "/usr/bin/site_perl"
-        - "/usr/bin/vendor_perl"
-        - "/usr/bin/core_perl"
-        - "/usr/share/dotnet"
-        - "/home/epadev/.lmstudio/bin"
-        - "/opt/gradle/bin"
-        - "/opt/flutter/bin"
-  -
-    kind: "find-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:18 (find_program)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
-      - "CMakeLists.txt:2 (project)"
-    mode: "program"
-    variable: "CMAKE_CXX_COMPILER_AR"
-    description: "A wrapper around 'ar' adding the appropriate '--plugin' option for the GCC compiler"
-    settings:
-      SearchFramework: "NEVER"
-      SearchAppBundle: "NEVER"
-      CMAKE_FIND_USE_CMAKE_PATH: false
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "gcc-ar-15.2"
-      - "gcc-ar-15"
-      - "gcc-ar15"
-      - "gcc-ar"
-    candidate_directories:
-      - "/usr/bin/"
-      - "/home/epadev/.opencode/bin/"
-      - "/home/epadev/.local/bin/"
-      - "/home/epadev/.local/share/pnpm/"
-      - "/opt/brew/bin/"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/"
-      - "/home/epadev/Android/Sdk/emulator/"
-      - "/home/epadev/Android/Sdk/platform-tools/"
-      - "/home/epadev/.bun/bin/"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/"
-      - "/home/epadev/.config/composer/vendor/bin/"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/"
-      - "/usr/local/sbin/"
-      - "/usr/local/bin/"
-      - "/var/lib/flatpak/exports/bin/"
-      - "/usr/lib/jvm/default/bin/"
-      - "/usr/bin/site_perl/"
-      - "/usr/bin/vendor_perl/"
-      - "/usr/bin/core_perl/"
-      - "/usr/share/dotnet/"
-      - "/home/epadev/.lmstudio/bin/"
-      - "/opt/gradle/bin/"
-      - "/opt/flutter/bin/"
-    searched_directories:
-      - "/usr/bin/gcc-ar-15.2"
-      - "/home/epadev/.opencode/bin/gcc-ar-15.2"
-      - "/home/epadev/.local/bin/gcc-ar-15.2"
-      - "/home/epadev/.local/share/pnpm/gcc-ar-15.2"
-      - "/opt/brew/bin/gcc-ar-15.2"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/gcc-ar-15.2"
-      - "/home/epadev/Android/Sdk/emulator/gcc-ar-15.2"
-      - "/home/epadev/Android/Sdk/platform-tools/gcc-ar-15.2"
-      - "/home/epadev/.bun/bin/gcc-ar-15.2"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/gcc-ar-15.2"
-      - "/home/epadev/.config/composer/vendor/bin/gcc-ar-15.2"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/gcc-ar-15.2"
-      - "/usr/local/sbin/gcc-ar-15.2"
-      - "/usr/local/bin/gcc-ar-15.2"
-      - "/var/lib/flatpak/exports/bin/gcc-ar-15.2"
-      - "/usr/lib/jvm/default/bin/gcc-ar-15.2"
-      - "/usr/bin/site_perl/gcc-ar-15.2"
-      - "/usr/bin/vendor_perl/gcc-ar-15.2"
-      - "/usr/bin/core_perl/gcc-ar-15.2"
-      - "/usr/share/dotnet/gcc-ar-15.2"
-      - "/home/epadev/.lmstudio/bin/gcc-ar-15.2"
-      - "/opt/gradle/bin/gcc-ar-15.2"
-      - "/opt/flutter/bin/gcc-ar-15.2"
-      - "/usr/bin/gcc-ar-15"
-      - "/home/epadev/.opencode/bin/gcc-ar-15"
-      - "/home/epadev/.local/bin/gcc-ar-15"
-      - "/home/epadev/.local/share/pnpm/gcc-ar-15"
-      - "/opt/brew/bin/gcc-ar-15"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/gcc-ar-15"
-      - "/home/epadev/Android/Sdk/emulator/gcc-ar-15"
-      - "/home/epadev/Android/Sdk/platform-tools/gcc-ar-15"
-      - "/home/epadev/.bun/bin/gcc-ar-15"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/gcc-ar-15"
-      - "/home/epadev/.config/composer/vendor/bin/gcc-ar-15"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/gcc-ar-15"
-      - "/usr/local/sbin/gcc-ar-15"
-      - "/usr/local/bin/gcc-ar-15"
-      - "/var/lib/flatpak/exports/bin/gcc-ar-15"
-      - "/usr/lib/jvm/default/bin/gcc-ar-15"
-      - "/usr/bin/site_perl/gcc-ar-15"
-      - "/usr/bin/vendor_perl/gcc-ar-15"
-      - "/usr/bin/core_perl/gcc-ar-15"
-      - "/usr/share/dotnet/gcc-ar-15"
-      - "/home/epadev/.lmstudio/bin/gcc-ar-15"
-      - "/opt/gradle/bin/gcc-ar-15"
-      - "/opt/flutter/bin/gcc-ar-15"
-      - "/usr/bin/gcc-ar15"
-      - "/home/epadev/.opencode/bin/gcc-ar15"
-      - "/home/epadev/.local/bin/gcc-ar15"
-      - "/home/epadev/.local/share/pnpm/gcc-ar15"
-      - "/opt/brew/bin/gcc-ar15"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/gcc-ar15"
-      - "/home/epadev/Android/Sdk/emulator/gcc-ar15"
-      - "/home/epadev/Android/Sdk/platform-tools/gcc-ar15"
-      - "/home/epadev/.bun/bin/gcc-ar15"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/gcc-ar15"
-      - "/home/epadev/.config/composer/vendor/bin/gcc-ar15"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/gcc-ar15"
-      - "/usr/local/sbin/gcc-ar15"
-      - "/usr/local/bin/gcc-ar15"
-      - "/var/lib/flatpak/exports/bin/gcc-ar15"
-      - "/usr/lib/jvm/default/bin/gcc-ar15"
-      - "/usr/bin/site_perl/gcc-ar15"
-      - "/usr/bin/vendor_perl/gcc-ar15"
-      - "/usr/bin/core_perl/gcc-ar15"
-      - "/usr/share/dotnet/gcc-ar15"
-      - "/home/epadev/.lmstudio/bin/gcc-ar15"
-      - "/opt/gradle/bin/gcc-ar15"
-      - "/opt/flutter/bin/gcc-ar15"
-    found: "/usr/bin/gcc-ar"
-    search_context:
-      ENV{PATH}:
-        - "/home/epadev/.opencode/bin"
-        - "/home/epadev/.local/bin"
-        - "/home/epadev/.local/share/pnpm"
-        - "/opt/brew/bin"
-        - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/.bun/bin"
-        - "/run/user/1001/fnm_multishells/30797_1774152200897/bin"
-        - "/home/epadev/.config/composer/vendor/bin"
-        - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin"
-        - "/usr/local/sbin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/var/lib/flatpak/exports/bin"
-        - "/usr/lib/jvm/default/bin"
-        - "/usr/bin/site_perl"
-        - "/usr/bin/vendor_perl"
-        - "/usr/bin/core_perl"
-        - "/usr/share/dotnet"
-        - "/home/epadev/.lmstudio/bin"
-        - "/opt/gradle/bin"
-        - "/opt/flutter/bin"
-  -
-    kind: "find-v1"
-    backtrace:
-      - "/usr/share/cmake/Modules/Compiler/GNU-FindBinUtils.cmake:30 (find_program)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
-      - "CMakeLists.txt:2 (project)"
-    mode: "program"
-    variable: "CMAKE_CXX_COMPILER_RANLIB"
-    description: "A wrapper around 'ranlib' adding the appropriate '--plugin' option for the GCC compiler"
-    settings:
-      SearchFramework: "NEVER"
-      SearchAppBundle: "NEVER"
-      CMAKE_FIND_USE_CMAKE_PATH: false
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "gcc-ranlib-15.2"
-      - "gcc-ranlib-15"
-      - "gcc-ranlib15"
-      - "gcc-ranlib"
-    candidate_directories:
-      - "/usr/bin/"
-      - "/home/epadev/.opencode/bin/"
-      - "/home/epadev/.local/bin/"
-      - "/home/epadev/.local/share/pnpm/"
-      - "/opt/brew/bin/"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/"
-      - "/home/epadev/Android/Sdk/emulator/"
-      - "/home/epadev/Android/Sdk/platform-tools/"
-      - "/home/epadev/.bun/bin/"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/"
-      - "/home/epadev/.config/composer/vendor/bin/"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/"
-      - "/usr/local/sbin/"
-      - "/usr/local/bin/"
-      - "/var/lib/flatpak/exports/bin/"
-      - "/usr/lib/jvm/default/bin/"
-      - "/usr/bin/site_perl/"
-      - "/usr/bin/vendor_perl/"
-      - "/usr/bin/core_perl/"
-      - "/usr/share/dotnet/"
-      - "/home/epadev/.lmstudio/bin/"
-      - "/opt/gradle/bin/"
-      - "/opt/flutter/bin/"
-    searched_directories:
-      - "/usr/bin/gcc-ranlib-15.2"
-      - "/home/epadev/.opencode/bin/gcc-ranlib-15.2"
-      - "/home/epadev/.local/bin/gcc-ranlib-15.2"
-      - "/home/epadev/.local/share/pnpm/gcc-ranlib-15.2"
-      - "/opt/brew/bin/gcc-ranlib-15.2"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/gcc-ranlib-15.2"
-      - "/home/epadev/Android/Sdk/emulator/gcc-ranlib-15.2"
-      - "/home/epadev/Android/Sdk/platform-tools/gcc-ranlib-15.2"
-      - "/home/epadev/.bun/bin/gcc-ranlib-15.2"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/gcc-ranlib-15.2"
-      - "/home/epadev/.config/composer/vendor/bin/gcc-ranlib-15.2"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/gcc-ranlib-15.2"
-      - "/usr/local/sbin/gcc-ranlib-15.2"
-      - "/usr/local/bin/gcc-ranlib-15.2"
-      - "/var/lib/flatpak/exports/bin/gcc-ranlib-15.2"
-      - "/usr/lib/jvm/default/bin/gcc-ranlib-15.2"
-      - "/usr/bin/site_perl/gcc-ranlib-15.2"
-      - "/usr/bin/vendor_perl/gcc-ranlib-15.2"
-      - "/usr/bin/core_perl/gcc-ranlib-15.2"
-      - "/usr/share/dotnet/gcc-ranlib-15.2"
-      - "/home/epadev/.lmstudio/bin/gcc-ranlib-15.2"
-      - "/opt/gradle/bin/gcc-ranlib-15.2"
-      - "/opt/flutter/bin/gcc-ranlib-15.2"
-      - "/usr/bin/gcc-ranlib-15"
-      - "/home/epadev/.opencode/bin/gcc-ranlib-15"
-      - "/home/epadev/.local/bin/gcc-ranlib-15"
-      - "/home/epadev/.local/share/pnpm/gcc-ranlib-15"
-      - "/opt/brew/bin/gcc-ranlib-15"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/gcc-ranlib-15"
-      - "/home/epadev/Android/Sdk/emulator/gcc-ranlib-15"
-      - "/home/epadev/Android/Sdk/platform-tools/gcc-ranlib-15"
-      - "/home/epadev/.bun/bin/gcc-ranlib-15"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/gcc-ranlib-15"
-      - "/home/epadev/.config/composer/vendor/bin/gcc-ranlib-15"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/gcc-ranlib-15"
-      - "/usr/local/sbin/gcc-ranlib-15"
-      - "/usr/local/bin/gcc-ranlib-15"
-      - "/var/lib/flatpak/exports/bin/gcc-ranlib-15"
-      - "/usr/lib/jvm/default/bin/gcc-ranlib-15"
-      - "/usr/bin/site_perl/gcc-ranlib-15"
-      - "/usr/bin/vendor_perl/gcc-ranlib-15"
-      - "/usr/bin/core_perl/gcc-ranlib-15"
-      - "/usr/share/dotnet/gcc-ranlib-15"
-      - "/home/epadev/.lmstudio/bin/gcc-ranlib-15"
-      - "/opt/gradle/bin/gcc-ranlib-15"
-      - "/opt/flutter/bin/gcc-ranlib-15"
-      - "/usr/bin/gcc-ranlib15"
-      - "/home/epadev/.opencode/bin/gcc-ranlib15"
-      - "/home/epadev/.local/bin/gcc-ranlib15"
-      - "/home/epadev/.local/share/pnpm/gcc-ranlib15"
-      - "/opt/brew/bin/gcc-ranlib15"
-      - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin/gcc-ranlib15"
-      - "/home/epadev/Android/Sdk/emulator/gcc-ranlib15"
-      - "/home/epadev/Android/Sdk/platform-tools/gcc-ranlib15"
-      - "/home/epadev/.bun/bin/gcc-ranlib15"
-      - "/run/user/1001/fnm_multishells/30797_1774152200897/bin/gcc-ranlib15"
-      - "/home/epadev/.config/composer/vendor/bin/gcc-ranlib15"
-      - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin/gcc-ranlib15"
-      - "/usr/local/sbin/gcc-ranlib15"
-      - "/usr/local/bin/gcc-ranlib15"
-      - "/var/lib/flatpak/exports/bin/gcc-ranlib15"
-      - "/usr/lib/jvm/default/bin/gcc-ranlib15"
-      - "/usr/bin/site_perl/gcc-ranlib15"
-      - "/usr/bin/vendor_perl/gcc-ranlib15"
-      - "/usr/bin/core_perl/gcc-ranlib15"
-      - "/usr/share/dotnet/gcc-ranlib15"
-      - "/home/epadev/.lmstudio/bin/gcc-ranlib15"
-      - "/opt/gradle/bin/gcc-ranlib15"
-      - "/opt/flutter/bin/gcc-ranlib15"
-    found: "/usr/bin/gcc-ranlib"
-    search_context:
-      ENV{PATH}:
-        - "/home/epadev/.opencode/bin"
-        - "/home/epadev/.local/bin"
-        - "/home/epadev/.local/share/pnpm"
-        - "/opt/brew/bin"
-        - "/home/epadev/Android/Sdk/cmdline-tools/latest/bin"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/Android/Sdk/emulator"
-        - "/home/epadev/Android/Sdk/platform-tools"
-        - "/home/epadev/.bun/bin"
-        - "/run/user/1001/fnm_multishells/30797_1774152200897/bin"
-        - "/home/epadev/.config/composer/vendor/bin"
-        - "/home/epadev/.var/app/com.visualstudio.code/config/nvm/versions/node/v23.10.0/bin"
-        - "/usr/local/sbin"
-        - "/usr/local/bin"
-        - "/usr/bin"
-        - "/var/lib/flatpak/exports/bin"
-        - "/usr/lib/jvm/default/bin"
-        - "/usr/bin/site_perl"
-        - "/usr/bin/vendor_perl"
-        - "/usr/bin/core_perl"
-        - "/usr/share/dotnet"
-        - "/home/epadev/.lmstudio/bin"
-        - "/opt/gradle/bin"
-        - "/opt/flutter/bin"
   -
     kind: "try_compile-v1"
     backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-ocV1rK"
+      binary: "/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-ocV1rK"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-ocV1rK'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_1829d/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_1829d.dir/build.make CMakeFiles/cmTC_1829d.dir/build
+        gmake[1]: Entering directory '/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-ocV1rK'
+        Building C object CMakeFiles/cmTC_1829d.dir/CMakeCCompilerABI.c.o
+        /usr/bin/cc   -v -o CMakeFiles/cmTC_1829d.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/cc
+        OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-redhat-linux
+        Configured with: ../configure --enable-bootstrap --enable-languages=c,c++,fortran,objc,obj-c++,ada,go,d,m2,cobol,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugzilla.redhat.com/ --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-libstdcxx-backtrace --with-libstdcxx-zoneinfo=/usr/share/zoneinfo --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl=/builddir/build/BUILD/gcc-15.2.1-build/gcc-15.2.1-20260123/obj-x86_64-redhat-linux/isl-install --enable-offload-targets=nvptx-none,amdgcn-amdhsa --enable-offload-defaulted --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=i686 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1 --disable-libssp
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 15.2.1 20260123 (Red Hat 15.2.1-7) (GCC) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_1829d.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_1829d.dir/'
+         /usr/libexec/gcc/x86_64-redhat-linux/15/cc1 -quiet -v /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_1829d.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o /tmp/cccSbdSm.s
+        GNU C23 (GCC) version 15.2.1 20260123 (Red Hat 15.2.1-7) (x86_64-redhat-linux)
+        	compiled by GNU C version 15.2.1 20260123 (Red Hat 15.2.1-7), GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.24-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/15/include-fixed"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/15/../../../../x86_64-redhat-linux/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/lib/gcc/x86_64-redhat-linux/15/include
+         /usr/local/include
+         /usr/include
+        End of search list.
+        Compiler executable checksum: 26be2a77f083688cd617fb87abbd954c
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_1829d.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_1829d.dir/'
+         as -v --64 -o CMakeFiles/cmTC_1829d.dir/CMakeCCompilerABI.c.o /tmp/cccSbdSm.s
+        GNU assembler version 2.45 (x86_64-redhat-linux) using BFD version version 2.45-1.fc43
+        COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/15/:/usr/libexec/gcc/x86_64-redhat-linux/15/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/15/:/usr/lib/gcc/x86_64-redhat-linux/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/15/:/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/15/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_1829d.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_1829d.dir/CMakeCCompilerABI.c.'
+        Linking C executable cmTC_1829d
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1829d.dir/link.txt --verbose=1
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/cc
+        COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/15/lto-wrapper
+        OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-redhat-linux
+        Configured with: ../configure --enable-bootstrap --enable-languages=c,c++,fortran,objc,obj-c++,ada,go,d,m2,cobol,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugzilla.redhat.com/ --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-libstdcxx-backtrace --with-libstdcxx-zoneinfo=/usr/share/zoneinfo --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl=/builddir/build/BUILD/gcc-15.2.1-build/gcc-15.2.1-20260123/obj-x86_64-redhat-linux/isl-install --enable-offload-targets=nvptx-none,amdgcn-amdhsa --enable-offload-defaulted --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=i686 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1 --disable-libssp
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 15.2.1 20260123 (Red Hat 15.2.1-7) (GCC) 
+        COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/15/:/usr/libexec/gcc/x86_64-redhat-linux/15/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/15/:/usr/lib/gcc/x86_64-redhat-linux/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/15/:/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/15/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_1829d' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_1829d.'
+         /usr/libexec/gcc/x86_64-redhat-linux/15/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/15/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/15/lto-wrapper -plugin-opt=-fresolution=/tmp/cccriBYr.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_1829d /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/15/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/15 -L/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/15/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_1829d.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-redhat-linux/15/crtend.o /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crtn.o
+        collect2 version 15.2.1 20260123 (Red Hat 15.2.1-7)
+        /usr/bin/ld -plugin /usr/libexec/gcc/x86_64-redhat-linux/15/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/15/lto-wrapper -plugin-opt=-fresolution=/tmp/cccriBYr.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_1829d /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/15/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/15 -L/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/15/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_1829d.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-redhat-linux/15/crtend.o /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crtn.o
+        GNU ld version 2.45-1.fc43
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_1829d' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_1829d.'
+        /usr/bin/cc  -v -Wl,-v CMakeFiles/cmTC_1829d.dir/CMakeCCompilerABI.c.o -o cmTC_1829d
+        gmake[1]: Leaving directory '/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-ocV1rK'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:182 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/lib/gcc/x86_64-redhat-linux/15/include]
+          add: [/usr/local/include]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/lib/gcc/x86_64-redhat-linux/15/include] ==> [/usr/lib/gcc/x86_64-redhat-linux/15/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/lib/gcc/x86_64-redhat-linux/15/include;/usr/local/include;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
+        ignore line: [Change Dir: '/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-ocV1rK']
+        ignore line: []
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_1829d/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_1829d.dir/build.make CMakeFiles/cmTC_1829d.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-ocV1rK']
+        ignore line: [Building C object CMakeFiles/cmTC_1829d.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_1829d.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake/Modules/CMakeCCompilerABI.c]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-redhat-linux]
+        ignore line: [Configured with: ../configure --enable-bootstrap --enable-languages=c c++ fortran objc obj-c++ ada go d m2 cobol lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugzilla.redhat.com/ --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-libstdcxx-backtrace --with-libstdcxx-zoneinfo=/usr/share/zoneinfo --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl=/builddir/build/BUILD/gcc-15.2.1-build/gcc-15.2.1-20260123/obj-x86_64-redhat-linux/isl-install --enable-offload-targets=nvptx-none amdgcn-amdhsa --enable-offload-defaulted --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=i686 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1 --disable-libssp]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 15.2.1 20260123 (Red Hat 15.2.1-7) (GCC) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_1829d.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_1829d.dir/']
+        ignore line: [ /usr/libexec/gcc/x86_64-redhat-linux/15/cc1 -quiet -v /usr/share/cmake/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_1829d.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o /tmp/cccSbdSm.s]
+        ignore line: [GNU C23 (GCC) version 15.2.1 20260123 (Red Hat 15.2.1-7) (x86_64-redhat-linux)]
+        ignore line: [	compiled by GNU C version 15.2.1 20260123 (Red Hat 15.2.1-7)  GMP version 6.3.0  MPFR version 4.2.2  MPC version 1.3.1  isl version isl-0.24-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/15/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/15/../../../../x86_64-redhat-linux/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/15/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [Compiler executable checksum: 26be2a77f083688cd617fb87abbd954c]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_1829d.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_1829d.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_1829d.dir/CMakeCCompilerABI.c.o /tmp/cccSbdSm.s]
+        ignore line: [GNU assembler version 2.45 (x86_64-redhat-linux) using BFD version version 2.45-1.fc43]
+        ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/15/:/usr/libexec/gcc/x86_64-redhat-linux/15/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/15/:/usr/lib/gcc/x86_64-redhat-linux/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/15/:/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/15/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_1829d.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_1829d.dir/CMakeCCompilerABI.c.']
+        ignore line: [Linking C executable cmTC_1829d]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1829d.dir/link.txt --verbose=1]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/15/lto-wrapper]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-redhat-linux]
+        ignore line: [Configured with: ../configure --enable-bootstrap --enable-languages=c c++ fortran objc obj-c++ ada go d m2 cobol lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugzilla.redhat.com/ --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-libstdcxx-backtrace --with-libstdcxx-zoneinfo=/usr/share/zoneinfo --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl=/builddir/build/BUILD/gcc-15.2.1-build/gcc-15.2.1-20260123/obj-x86_64-redhat-linux/isl-install --enable-offload-targets=nvptx-none amdgcn-amdhsa --enable-offload-defaulted --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=i686 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1 --disable-libssp]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 15.2.1 20260123 (Red Hat 15.2.1-7) (GCC) ]
+        ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/15/:/usr/libexec/gcc/x86_64-redhat-linux/15/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/15/:/usr/lib/gcc/x86_64-redhat-linux/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/15/:/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/15/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_1829d' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_1829d.']
+        link line: [ /usr/libexec/gcc/x86_64-redhat-linux/15/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/15/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/15/lto-wrapper -plugin-opt=-fresolution=/tmp/cccriBYr.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_1829d /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/15/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/15 -L/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/15/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_1829d.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-redhat-linux/15/crtend.o /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crtn.o]
+          arg [/usr/libexec/gcc/x86_64-redhat-linux/15/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/usr/libexec/gcc/x86_64-redhat-linux/15/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/15/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/cccriBYr.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--no-add-needed] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_1829d] ==> ignore
+          arg [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crt1.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crt1.o]
+          arg [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crti.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crti.o]
+          arg [/usr/lib/gcc/x86_64-redhat-linux/15/crtbegin.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/15/crtbegin.o]
+          arg [-L/usr/lib/gcc/x86_64-redhat-linux/15] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/15]
+          arg [-L/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64]
+          arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+          arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+          arg [-L/usr/lib/gcc/x86_64-redhat-linux/15/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/15/../../..]
+          arg [-L/lib] ==> dir [/lib]
+          arg [-L/usr/lib] ==> dir [/usr/lib]
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_1829d.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--pop-state] ==> ignore
+          arg [-lc] ==> lib [c]
+          arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--pop-state] ==> ignore
+          arg [/usr/lib/gcc/x86_64-redhat-linux/15/crtend.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/15/crtend.o]
+          arg [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crtn.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crtn.o]
+        ignore line: [collect2 version 15.2.1 20260123 (Red Hat 15.2.1-7)]
+        ignore line: [/usr/bin/ld -plugin /usr/libexec/gcc/x86_64-redhat-linux/15/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/15/lto-wrapper -plugin-opt=-fresolution=/tmp/cccriBYr.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_1829d /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/15/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/15 -L/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/15/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_1829d.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-redhat-linux/15/crtend.o /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crtn.o]
+        linker tool for 'C': /usr/bin/ld
+        collapse obj [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crt1.o] ==> [/usr/lib64/crt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crti.o] ==> [/usr/lib64/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crtn.o] ==> [/usr/lib64/crtn.o]
+        collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/15] ==> [/usr/lib/gcc/x86_64-redhat-linux/15]
+        collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64] ==> [/usr/lib64]
+        collapse library dir [/lib/../lib64] ==> [/lib64]
+        collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+        collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/15/../../..] ==> [/usr/lib]
+        collapse library dir [/lib] ==> [/lib]
+        collapse library dir [/usr/lib] ==> [/usr/lib]
+        implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+        implicit objs: [/usr/lib64/crt1.o;/usr/lib64/crti.o;/usr/lib/gcc/x86_64-redhat-linux/15/crtbegin.o;/usr/lib/gcc/x86_64-redhat-linux/15/crtend.o;/usr/lib64/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-redhat-linux/15;/usr/lib64;/lib64;/usr/lib;/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "/usr/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the C compiler's linker: "/usr/bin/ld" "-v"
+      GNU ld version 2.45-1.fc43
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
       - "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/home/epadev/Documents/myDrive/proyects/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-tUR4Tf"
-      binary: "/home/epadev/Documents/myDrive/proyects/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-tUR4Tf"
+      source: "/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-zf6Eed"
+      binary: "/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-zf6Eed"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -1507,188 +309,194 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/home/epadev/Documents/myDrive/proyects/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-tUR4Tf'
+        Change Dir: '/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-zf6Eed'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_259ed/fast
-        /usr/bin/make  -f CMakeFiles/cmTC_259ed.dir/build.make CMakeFiles/cmTC_259ed.dir/build
-        make[1]: Entering directory '/home/epadev/Documents/myDrive/proyects/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-tUR4Tf'
-        Building CXX object CMakeFiles/cmTC_259ed.dir/CMakeCXXCompilerABI.cpp.o
-        /usr/bin/c++   -v -o CMakeFiles/cmTC_259ed.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_abc60/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_abc60.dir/build.make CMakeFiles/cmTC_abc60.dir/build
+        gmake[1]: Entering directory '/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-zf6Eed'
+        Building CXX object CMakeFiles/cmTC_abc60.dir/CMakeCXXCompilerABI.cpp.o
+        /usr/bin/c++   -v -o CMakeFiles/cmTC_abc60.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
-        Target: x86_64-pc-linux-gnu
-        Configured with: /build/gcc/src/gcc/configure --enable-languages=ada,c,c++,d,fortran,go,lto,m2,objc,obj-c++,rust,cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://gitlab.archlinux.org/archlinux/packaging/packages/gcc/-/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-__cxa_atexit --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror
+        OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-redhat-linux
+        Configured with: ../configure --enable-bootstrap --enable-languages=c,c++,fortran,objc,obj-c++,ada,go,d,m2,cobol,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugzilla.redhat.com/ --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-libstdcxx-backtrace --with-libstdcxx-zoneinfo=/usr/share/zoneinfo --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl=/builddir/build/BUILD/gcc-15.2.1-build/gcc-15.2.1-20260123/obj-x86_64-redhat-linux/isl-install --enable-offload-targets=nvptx-none,amdgcn-amdhsa --enable-offload-defaulted --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=i686 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1 --disable-libssp
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
-        gcc version 15.2.1 20260209 (GCC) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_259ed.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_259ed.dir/'
-         /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_259ed.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/ccTxFcrv.s
-        GNU C++17 (GCC) version 15.2.1 20260209 (x86_64-pc-linux-gnu)
-        	compiled by GNU C version 15.2.1 20260209, GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.27-GMP
+        gcc version 15.2.1 20260123 (Red Hat 15.2.1-7) (GCC) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_abc60.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_abc60.dir/'
+         /usr/libexec/gcc/x86_64-redhat-linux/15/cc1plus -quiet -v -D_GNU_SOURCE /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_abc60.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/cc8Z5A7v.s
+        GNU C++17 (GCC) version 15.2.1 20260123 (Red Hat 15.2.1-7) (x86_64-redhat-linux)
+        	compiled by GNU C version 15.2.1 20260123 (Red Hat 15.2.1-7), GMP version 6.3.0, MPFR version 4.2.2, MPC version 1.3.1, isl version isl-0.24-GMP
         
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
-        ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../x86_64-pc-linux-gnu/include"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/15/include-fixed"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/15/../../../../x86_64-redhat-linux/include"
         #include "..." search starts here:
         #include <...> search starts here:
-         /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1
-         /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/x86_64-pc-linux-gnu
-         /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/backward
-         /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include
+         /usr/lib/gcc/x86_64-redhat-linux/15/../../../../include/c++/15
+         /usr/lib/gcc/x86_64-redhat-linux/15/../../../../include/c++/15/x86_64-redhat-linux
+         /usr/lib/gcc/x86_64-redhat-linux/15/../../../../include/c++/15/backward
+         /usr/lib/gcc/x86_64-redhat-linux/15/include
          /usr/local/include
-         /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed
          /usr/include
         End of search list.
-        Compiler executable checksum: 5e3969de92aa3c12a625237f01b15b2f
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_259ed.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_259ed.dir/'
-         as -v --64 -o CMakeFiles/cmTC_259ed.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccTxFcrv.s
-        GNU assembler version 2.46 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.46
-        COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
-        LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_259ed.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_259ed.dir/CMakeCXXCompilerABI.cpp.'
-        Linking CXX executable cmTC_259ed
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_259ed.dir/link.txt --verbose=1
+        Compiler executable checksum: 61fbb778c0a8c441a1c0ce3e680cc1db
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_abc60.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_abc60.dir/'
+         as -v --64 -o CMakeFiles/cmTC_abc60.dir/CMakeCXXCompilerABI.cpp.o /tmp/cc8Z5A7v.s
+        GNU assembler version 2.45 (x86_64-redhat-linux) using BFD version version 2.45-1.fc43
+        COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/15/:/usr/libexec/gcc/x86_64-redhat-linux/15/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/15/:/usr/lib/gcc/x86_64-redhat-linux/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/15/:/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/15/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_abc60.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_abc60.dir/CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_abc60
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_abc60.dir/link.txt --verbose=1
         Using built-in specs.
         COLLECT_GCC=/usr/bin/c++
-        COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper
-        Target: x86_64-pc-linux-gnu
-        Configured with: /build/gcc/src/gcc/configure --enable-languages=ada,c,c++,d,fortran,go,lto,m2,objc,obj-c++,rust,cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://gitlab.archlinux.org/archlinux/packaging/packages/gcc/-/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-__cxa_atexit --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror
+        COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/15/lto-wrapper
+        OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-redhat-linux
+        Configured with: ../configure --enable-bootstrap --enable-languages=c,c++,fortran,objc,obj-c++,ada,go,d,m2,cobol,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugzilla.redhat.com/ --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-libstdcxx-backtrace --with-libstdcxx-zoneinfo=/usr/share/zoneinfo --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl=/builddir/build/BUILD/gcc-15.2.1-build/gcc-15.2.1-20260123/obj-x86_64-redhat-linux/isl-install --enable-offload-targets=nvptx-none,amdgcn-amdhsa --enable-offload-defaulted --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=i686 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1 --disable-libssp
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
-        gcc version 15.2.1 20260209 (GCC) 
-        COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
-        LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../:/lib/:/usr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_259ed' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_259ed.'
-         /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccT5EAHl.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_259ed /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_259ed.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o
-        collect2 version 15.2.1 20260209
-        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccT5EAHl.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_259ed /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_259ed.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o
-        GNU ld (GNU Binutils) 2.46
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_259ed' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_259ed.'
-        /usr/bin/c++  -v -Wl,-v CMakeFiles/cmTC_259ed.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_259ed
-        make[1]: Leaving directory '/home/epadev/Documents/myDrive/proyects/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-tUR4Tf'
+        gcc version 15.2.1 20260123 (Red Hat 15.2.1-7) (GCC) 
+        COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/15/:/usr/libexec/gcc/x86_64-redhat-linux/15/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/15/:/usr/lib/gcc/x86_64-redhat-linux/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/15/:/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/15/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_abc60' '-foffload-options=-l_GCC_stdc++' '-foffload-options=-l_GCC_m' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_abc60.'
+         /usr/libexec/gcc/x86_64-redhat-linux/15/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/15/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/15/lto-wrapper -plugin-opt=-fresolution=/tmp/ccZZrsGb.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_abc60 /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/15/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/15 -L/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/15/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_abc60.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/15/crtend.o /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crtn.o
+        collect2 version 15.2.1 20260123 (Red Hat 15.2.1-7)
+        /usr/bin/ld -plugin /usr/libexec/gcc/x86_64-redhat-linux/15/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/15/lto-wrapper -plugin-opt=-fresolution=/tmp/ccZZrsGb.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_abc60 /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/15/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/15 -L/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/15/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_abc60.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/15/crtend.o /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crtn.o
+        GNU ld version 2.45-1.fc43
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_abc60' '-foffload-options=-l_GCC_stdc++' '-foffload-options=-l_GCC_m' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_abc60.'
+        /usr/bin/c++  -v -Wl,-v CMakeFiles/cmTC_abc60.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_abc60
+        gmake[1]: Leaving directory '/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-zf6Eed'
         
       exitCode: 0
   -
     kind: "message-v1"
     backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:182 (message)"
       - "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Parsed CXX implicit include dir info: rv=done
         found start of include info
         found start of implicit include info
-          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1]
-          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/x86_64-pc-linux-gnu]
-          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/backward]
-          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include]
+          add: [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../include/c++/15]
+          add: [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../include/c++/15/x86_64-redhat-linux]
+          add: [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../include/c++/15/backward]
+          add: [/usr/lib/gcc/x86_64-redhat-linux/15/include]
           add: [/usr/local/include]
-          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed]
           add: [/usr/include]
         end of search list found
-        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1] ==> [/usr/include/c++/15.2.1]
-        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/x86_64-pc-linux-gnu] ==> [/usr/include/c++/15.2.1/x86_64-pc-linux-gnu]
-        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/backward] ==> [/usr/include/c++/15.2.1/backward]
-        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include]
+        collapse include dir [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../include/c++/15] ==> [/usr/include/c++/15]
+        collapse include dir [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../include/c++/15/x86_64-redhat-linux] ==> [/usr/include/c++/15/x86_64-redhat-linux]
+        collapse include dir [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../include/c++/15/backward] ==> [/usr/include/c++/15/backward]
+        collapse include dir [/usr/lib/gcc/x86_64-redhat-linux/15/include] ==> [/usr/lib/gcc/x86_64-redhat-linux/15/include]
         collapse include dir [/usr/local/include] ==> [/usr/local/include]
-        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed]
         collapse include dir [/usr/include] ==> [/usr/include]
-        implicit include dirs: [/usr/include/c++/15.2.1;/usr/include/c++/15.2.1/x86_64-pc-linux-gnu;/usr/include/c++/15.2.1/backward;/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include;/usr/local/include;/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed;/usr/include]
+        implicit include dirs: [/usr/include/c++/15;/usr/include/c++/15/x86_64-redhat-linux;/usr/include/c++/15/backward;/usr/lib/gcc/x86_64-redhat-linux/15/include;/usr/local/include;/usr/include]
       
       
   -
     kind: "message-v1"
     backtrace:
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
       - "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Parsed CXX implicit link information:
-        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        linker tool regex: [^[ 	]*(->|"|[0-9]+>[ 	-]*Build:[ 	0-9]+ ms[ 	]*)?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/home/epadev/Documents/myDrive/proyects/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-tUR4Tf']
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
+        ignore line: [Change Dir: '/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-zf6Eed']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_259ed/fast]
-        ignore line: [/usr/bin/make  -f CMakeFiles/cmTC_259ed.dir/build.make CMakeFiles/cmTC_259ed.dir/build]
-        ignore line: [make[1]: Entering directory '/home/epadev/Documents/myDrive/proyects/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-tUR4Tf']
-        ignore line: [Building CXX object CMakeFiles/cmTC_259ed.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_259ed.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_abc60/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_abc60.dir/build.make CMakeFiles/cmTC_abc60.dir/build]
+        ignore line: [gmake[1]: Entering directory '/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-zf6Eed']
+        ignore line: [Building CXX object CMakeFiles/cmTC_abc60.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/usr/bin/c++   -v -o CMakeFiles/cmTC_abc60.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
-        ignore line: [Target: x86_64-pc-linux-gnu]
-        ignore line: [Configured with: /build/gcc/src/gcc/configure --enable-languages=ada c c++ d fortran go lto m2 objc obj-c++ rust cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://gitlab.archlinux.org/archlinux/packaging/packages/gcc/-/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-__cxa_atexit --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-redhat-linux]
+        ignore line: [Configured with: ../configure --enable-bootstrap --enable-languages=c c++ fortran objc obj-c++ ada go d m2 cobol lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugzilla.redhat.com/ --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-libstdcxx-backtrace --with-libstdcxx-zoneinfo=/usr/share/zoneinfo --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl=/builddir/build/BUILD/gcc-15.2.1-build/gcc-15.2.1-20260123/obj-x86_64-redhat-linux/isl-install --enable-offload-targets=nvptx-none amdgcn-amdhsa --enable-offload-defaulted --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=i686 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1 --disable-libssp]
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
-        ignore line: [gcc version 15.2.1 20260209 (GCC) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_259ed.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_259ed.dir/']
-        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/cc1plus -quiet -v -D_GNU_SOURCE /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_259ed.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/ccTxFcrv.s]
-        ignore line: [GNU C++17 (GCC) version 15.2.1 20260209 (x86_64-pc-linux-gnu)]
-        ignore line: [	compiled by GNU C version 15.2.1 20260209  GMP version 6.3.0  MPFR version 4.2.2  MPC version 1.3.1  isl version isl-0.27-GMP]
+        ignore line: [gcc version 15.2.1 20260123 (Red Hat 15.2.1-7) (GCC) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_abc60.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_abc60.dir/']
+        ignore line: [ /usr/libexec/gcc/x86_64-redhat-linux/15/cc1plus -quiet -v -D_GNU_SOURCE /usr/share/cmake/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_abc60.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o /tmp/cc8Z5A7v.s]
+        ignore line: [GNU C++17 (GCC) version 15.2.1 20260123 (Red Hat 15.2.1-7) (x86_64-redhat-linux)]
+        ignore line: [	compiled by GNU C version 15.2.1 20260123 (Red Hat 15.2.1-7)  GMP version 6.3.0  MPFR version 4.2.2  MPC version 1.3.1  isl version isl-0.24-GMP]
         ignore line: []
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
-        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/15/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-redhat-linux/15/../../../../x86_64-redhat-linux/include"]
         ignore line: [#include "..." search starts here:]
         ignore line: [#include <...> search starts here:]
-        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1]
-        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/x86_64-pc-linux-gnu]
-        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../include/c++/15.2.1/backward]
-        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include]
+        ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/15/../../../../include/c++/15]
+        ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/15/../../../../include/c++/15/x86_64-redhat-linux]
+        ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/15/../../../../include/c++/15/backward]
+        ignore line: [ /usr/lib/gcc/x86_64-redhat-linux/15/include]
         ignore line: [ /usr/local/include]
-        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include-fixed]
         ignore line: [ /usr/include]
         ignore line: [End of search list.]
-        ignore line: [Compiler executable checksum: 5e3969de92aa3c12a625237f01b15b2f]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_259ed.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_259ed.dir/']
-        ignore line: [ as -v --64 -o CMakeFiles/cmTC_259ed.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccTxFcrv.s]
-        ignore line: [GNU assembler version 2.46 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.46]
-        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
-        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_259ed.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_259ed.dir/CMakeCXXCompilerABI.cpp.']
-        ignore line: [Linking CXX executable cmTC_259ed]
-        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_259ed.dir/link.txt --verbose=1]
+        ignore line: [Compiler executable checksum: 61fbb778c0a8c441a1c0ce3e680cc1db]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_abc60.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_abc60.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_abc60.dir/CMakeCXXCompilerABI.cpp.o /tmp/cc8Z5A7v.s]
+        ignore line: [GNU assembler version 2.45 (x86_64-redhat-linux) using BFD version version 2.45-1.fc43]
+        ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/15/:/usr/libexec/gcc/x86_64-redhat-linux/15/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/15/:/usr/lib/gcc/x86_64-redhat-linux/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/15/:/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/15/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_abc60.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_abc60.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_abc60]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_abc60.dir/link.txt --verbose=1]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=/usr/bin/c++]
-        ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper]
-        ignore line: [Target: x86_64-pc-linux-gnu]
-        ignore line: [Configured with: /build/gcc/src/gcc/configure --enable-languages=ada c c++ d fortran go lto m2 objc obj-c++ rust cobol --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://gitlab.archlinux.org/archlinux/packaging/packages/gcc/-/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-__cxa_atexit --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/15/lto-wrapper]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-redhat-linux]
+        ignore line: [Configured with: ../configure --enable-bootstrap --enable-languages=c c++ fortran objc obj-c++ ada go d m2 cobol lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugzilla.redhat.com/ --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-libstdcxx-backtrace --with-libstdcxx-zoneinfo=/usr/share/zoneinfo --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl=/builddir/build/BUILD/gcc-15.2.1-build/gcc-15.2.1-20260123/obj-x86_64-redhat-linux/isl-install --enable-offload-targets=nvptx-none amdgcn-amdhsa --enable-offload-defaulted --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=i686 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1 --disable-libssp]
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib zstd]
-        ignore line: [gcc version 15.2.1 20260209 (GCC) ]
-        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
-        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../:/lib/:/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_259ed' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_259ed.']
-        link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccT5EAHl.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_259ed /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_259ed.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o]
-          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/collect2] ==> ignore
+        ignore line: [gcc version 15.2.1 20260123 (Red Hat 15.2.1-7) (GCC) ]
+        ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/15/:/usr/libexec/gcc/x86_64-redhat-linux/15/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/15/:/usr/lib/gcc/x86_64-redhat-linux/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/15/:/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/15/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_abc60' '-foffload-options=-l_GCC_stdc++' '-foffload-options=-l_GCC_m' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_abc60.']
+        link line: [ /usr/libexec/gcc/x86_64-redhat-linux/15/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/15/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/15/lto-wrapper -plugin-opt=-fresolution=/tmp/ccZZrsGb.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_abc60 /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/15/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/15 -L/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/15/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_abc60.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/15/crtend.o /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crtn.o]
+          arg [/usr/libexec/gcc/x86_64-redhat-linux/15/collect2] ==> ignore
           arg [-plugin] ==> ignore
-          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/liblto_plugin.so] ==> ignore
-          arg [-plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccT5EAHl.res] ==> ignore
+          arg [/usr/libexec/gcc/x86_64-redhat-linux/15/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/15/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccZZrsGb.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [--build-id] ==> ignore
+          arg [--no-add-needed] ==> ignore
           arg [--eh-frame-hdr] ==> ignore
           arg [--hash-style=gnu] ==> ignore
           arg [-m] ==> ignore
           arg [elf_x86_64] ==> ignore
           arg [-dynamic-linker] ==> ignore
           arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
-          arg [-pie] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_259ed] ==> ignore
-          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o]
-          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o]
-          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o]
-          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1]
-          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib]
-          arg [-L/lib/../lib] ==> dir [/lib/../lib]
-          arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
-          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../..] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../..]
+          arg [cmTC_abc60] ==> ignore
+          arg [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crt1.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crt1.o]
+          arg [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crti.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crti.o]
+          arg [/usr/lib/gcc/x86_64-redhat-linux/15/crtbegin.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/15/crtbegin.o]
+          arg [-L/usr/lib/gcc/x86_64-redhat-linux/15] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/15]
+          arg [-L/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64]
+          arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+          arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+          arg [-L/usr/lib/gcc/x86_64-redhat-linux/15/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/15/../../..]
           arg [-L/lib] ==> dir [/lib]
           arg [-L/usr/lib] ==> dir [/usr/lib]
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_259ed.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_abc60.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
           arg [-lstdc++] ==> lib [stdc++]
           arg [-lm] ==> lib [m]
           arg [-lgcc_s] ==> lib [gcc_s]
@@ -1696,35 +504,113 @@ events:
           arg [-lc] ==> lib [c]
           arg [-lgcc_s] ==> lib [gcc_s]
           arg [-lgcc] ==> lib [gcc]
-          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o]
-          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o]
-        ignore line: [collect2 version 15.2.1 20260209]
-        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccT5EAHl.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_259ed /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_259ed.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o]
+          arg [/usr/lib/gcc/x86_64-redhat-linux/15/crtend.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/15/crtend.o]
+          arg [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crtn.o] ==> obj [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crtn.o]
+        ignore line: [collect2 version 15.2.1 20260123 (Red Hat 15.2.1-7)]
+        ignore line: [/usr/bin/ld -plugin /usr/libexec/gcc/x86_64-redhat-linux/15/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/15/lto-wrapper -plugin-opt=-fresolution=/tmp/ccZZrsGb.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_abc60 /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/15/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/15 -L/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/15/../../.. -L/lib -L/usr/lib -v CMakeFiles/cmTC_abc60.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/15/crtend.o /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crtn.o]
         linker tool for 'CXX': /usr/bin/ld
-        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o] ==> [/usr/lib/Scrt1.o]
-        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o] ==> [/usr/lib/crti.o]
-        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o] ==> [/usr/lib/crtn.o]
-        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1]
-        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib] ==> [/usr/lib]
-        collapse library dir [/lib/../lib] ==> [/lib]
-        collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
-        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../..] ==> [/usr/lib]
+        collapse obj [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crt1.o] ==> [/usr/lib64/crt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crti.o] ==> [/usr/lib64/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crtn.o] ==> [/usr/lib64/crtn.o]
+        collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/15] ==> [/usr/lib/gcc/x86_64-redhat-linux/15]
+        collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64] ==> [/usr/lib64]
+        collapse library dir [/lib/../lib64] ==> [/lib64]
+        collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+        collapse library dir [/usr/lib/gcc/x86_64-redhat-linux/15/../../..] ==> [/usr/lib]
         collapse library dir [/lib] ==> [/lib]
         collapse library dir [/usr/lib] ==> [/usr/lib]
         implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
-        implicit objs: [/usr/lib/Scrt1.o;/usr/lib/crti.o;/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o;/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o;/usr/lib/crtn.o]
-        implicit dirs: [/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1;/usr/lib;/lib]
+        implicit objs: [/usr/lib64/crt1.o;/usr/lib64/crti.o;/usr/lib/gcc/x86_64-redhat-linux/15/crtbegin.o;/usr/lib/gcc/x86_64-redhat-linux/15/crtend.o;/usr/lib64/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-redhat-linux/15;/usr/lib64;/lib64;/usr/lib;/lib]
         implicit fwks: []
       
       
   -
     kind: "message-v1"
     backtrace:
-      - "/usr/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:38 (message)"
-      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "/usr/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "/usr/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
       - "/usr/share/cmake/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
       - "CMakeLists.txt:2 (project)"
     message: |
       Running the CXX compiler's linker: "/usr/bin/ld" "-v"
-      GNU ld (GNU Binutils) 2.46
+      GNU ld version 2.45-1.fc43
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/usr/share/cmake/Modules/CheckCSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "/usr/share/cmake/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "build/_deps/ftxui-src/CMakeLists.txt:147 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-pwnPqn"
+      binary: "/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-pwnPqn"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: '/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-pwnPqn'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_82e0b/fast
+        gmake[1]: Entering directory '/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-pwnPqn'
+        /usr/bin/gmake  -f CMakeFiles/cmTC_82e0b.dir/build.make CMakeFiles/cmTC_82e0b.dir/build
+        gmake[2]: Entering directory '/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-pwnPqn'
+        Building C object CMakeFiles/cmTC_82e0b.dir/src.c.o
+        /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_82e0b.dir/src.c.o -c /home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-pwnPqn/src.c
+        Linking C executable cmTC_82e0b
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_82e0b.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_82e0b.dir/src.c.o -o cmTC_82e0b
+        gmake[2]: Leaving directory '/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-pwnPqn'
+        gmake[1]: Leaving directory '/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-pwnPqn'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/usr/share/cmake/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake/Modules/CheckCXXCompilerFlag.cmake:55 (cmake_check_compiler_flag)"
+      - "build/_deps/catch2-src/CMake/CatchMiscFunctions.cmake:12 (check_cxx_compiler_flag)"
+      - "build/_deps/catch2-src/CMake/CatchMiscFunctions.cmake:119 (add_cxx_flag_if_supported_to_targets)"
+      - "build/_deps/catch2-src/src/CMakeLists.txt:342 (add_build_reproducibility_settings)"
+    checks:
+      - "Performing Test HAVE_FLAG__ffile_prefix_map__home_epadev_Documents_unap_2026_topico_ciberseguridad_compresor_file_build__deps_catch2_src__"
+    directories:
+      source: "/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-WTDJgF"
+      binary: "/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-WTDJgF"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/_deps/catch2-src/extras;/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/_deps/catch2-src/CMake"
+    buildResult:
+      variable: "HAVE_FLAG__ffile_prefix_map__home_epadev_Documents_unap_2026_topico_ciberseguridad_compresor_file_build__deps_catch2_src__"
+      cached: true
+      stdout: |
+        Change Dir: '/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-WTDJgF'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_b1627/fast
+        gmake[1]: Entering directory '/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-WTDJgF'
+        /usr/bin/gmake  -f CMakeFiles/cmTC_b1627.dir/build.make CMakeFiles/cmTC_b1627.dir/build
+        gmake[2]: Entering directory '/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-WTDJgF'
+        Building CXX object CMakeFiles/cmTC_b1627.dir/src.cxx.o
+        /usr/bin/c++ -DHAVE_FLAG__ffile_prefix_map__home_epadev_Documents_unap_2026_topico_ciberseguridad_compresor_file_build__deps_catch2_src__  -std=gnu++17   -ffile-prefix-map=/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/_deps/catch2-src/= -o CMakeFiles/cmTC_b1627.dir/src.cxx.o -c /home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-WTDJgF/src.cxx
+        Linking CXX executable cmTC_b1627
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b1627.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_b1627.dir/src.cxx.o -o cmTC_b1627
+        gmake[2]: Leaving directory '/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-WTDJgF'
+        gmake[1]: Leaving directory '/home/epadev/Documents/unap-2026/topico-ciberseguridad/compresor-file/build/CMakeFiles/CMakeScratch/TryCompile-WTDJgF'
+        
+      exitCode: 0
 ...
