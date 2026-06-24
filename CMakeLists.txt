@@ -1,77 +1,52 @@
-cmake_minimum_required(VERSION 3.15)
-project(HPC VERSION 1.0 LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.14)
+project(ZCoreCompression)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+include(FetchContent)
 
-option(BUILD_TESTS "Build tests" OFF)
-
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-
-set(UTILS_SOURCES
-    Utils/Logger.cpp
-    Utils/CompressionException.hpp
+# 1. CLI11 (Parser Profesional de CLI)
+FetchContent_Declare(
+    CLI11
+    GIT_REPOSITORY https://github.com/CLIUtils/CLI11.git
+    GIT_TAG        v2.3.2
 )
+FetchContent_MakeAvailable(CLI11)
 
-set(IO_SOURCES
-    IO/BitBuffer.cpp
-    IO/BitBuffer.hpp
-    IO/FileHandler.cpp
-    IO/FileHandler.hpp
+# 2. FTXUI (Terminal UI)
+FetchContent_Declare(
+  ftxui
+  GIT_REPOSITORY https://github.com/ArthurSonzogni/FTXUI
+  GIT_TAG v5.0.0
 )
+FetchContent_MakeAvailable(ftxui)
 
+# 3. Catch2 (Testing)
+FetchContent_Declare(
+  Catch2
+  GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+  GIT_TAG        v3.4.0
+)
+FetchContent_MakeAvailable(Catch2)
+
+# Include directories
+include_directories(include)
+include_directories(include/core)
+include_directories(include/ui)
+
+# Gather Core sources
 set(CORE_SOURCES
-    Core/LZ77Compressor.cpp
-    Core/LZ77Compressor.hpp
-    Core/HuffmanCompressor.cpp
-    Core/HuffmanCompressor.hpp
-    Core/CompressionEngine.cpp
-    Core/CompressionEngine.hpp
+    src/core/Huffman.cpp
+    src/core/Lz77.cpp
+    src/core/Deflate.cpp
+    src/core/Gzip.cpp
 )
 
-set(CLI_SOURCES
-    CLI/ArgumentParser.cpp
-    CLI/ArgumentParser.hpp
-)
+# Main Executable
+add_executable(compressor src/main.cpp ${CORE_SOURCES})
+target_link_libraries(compressor PRIVATE ftxui::screen ftxui::dom ftxui::component CLI11::CLI11)
 
-add_executable(hpc
-    main.cpp
-    ${UTILS_SOURCES}
-    ${IO_SOURCES}
-    ${CORE_SOURCES}
-    ${CLI_SOURCES}
-)
-
-target_include_directories(hpc PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}
-    ${CMAKE_CURRENT_SOURCE_DIR}/Utils
-    ${CMAKE_CURRENT_SOURCE_DIR}/IO
-    ${CMAKE_CURRENT_SOURCE_DIR}/Core
-    ${CMAKE_CURRENT_SOURCE_DIR}/CLI
-)
-
-target_compile_options(hpc PRIVATE
-    $<$<CONFIG:Release>:-O3 -march=native -mtune=native>
-    $<$<CONFIG:Debug>:-g -O0 -Wall -Wextra>
-    $<$<CONFIG:RelWithDebInfo>:-O2 -g>
-)
-
-target_link_libraries(hpc PRIVATE)
-
-if(CMAKE_BUILD_TYPE STREQUAL "Release")
-    target_compile_definitions(hpc PRIVATE NDEBUG)
-else()
-    target_compile_definitions(hpc PRIVATE DEBUG)
-endif()
-
-install(TARGETS hpc RUNTIME DESTINATION bin)
-
-if(BUILD_TESTS)
-    enable_testing()
-    add_subdirectory(tests)
-endif()
+# Tests
+add_executable(test_compression tests/test_compression.cpp ${CORE_SOURCES})
+target_link_libraries(test_compression PRIVATE Catch2::Catch2WithMain)
