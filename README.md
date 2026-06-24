@@ -1,140 +1,105 @@
-# HPC — High Performance Compression Engine
+# ⚡ ZCore Compression Engine
 
-**Hybrid LZ77 + Huffman compressor with per-block Smart Fallback (Format V2)**
+![C++17](https://img.shields.io/badge/C%2B%2B-17-blue.svg)
+![CMake](https://img.shields.io/badge/CMake-3.10%2B-green.svg)
+![License](https://img.shields.io/badge/License-MIT-purple.svg)
 
-[![Build](https://img.shields.io/badge/build-passing-brightgreen)](#)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![C++17](https://img.shields.io/badge/C%2B%2B-17-blue.svg)](#)
-[![CMake](https://img.shields.io/badge/CMake-3.15+-064F8C.svg)](#)
+**ZCore** es un motor de compresión de datos de grado industrial escrito desde cero en C++ moderno. Diseñado con una arquitectura modular y concurrente, ZCore implementa los algoritmos de compresión más populares (Huffman, LZ77, Deflate, Gzip) garantizando bajo consumo de memoria RAM ($O(1)$) sin sacrificar velocidad, gracias a sus tablas de hash en cadena integradas y su procesamiento por bloques (Chunks).
 
----
+Cuenta con una **Interfaz Gráfica de Terminal (TUI)** de alto nivel diseñada con `FTXUI` y una CLI robusta potenciada por `CLI11`.
 
-## Architecture — Format V2 & Smart Fallback
-
-The core differentiator of HPC is its **block-level Smart Fallback** mechanism. Instead of applying compression to the entire file as a single monolithic stream, HPC processes input data in independent **64 KB blocks**. Each block is individually evaluated:
-
-```
-Input File (e.g. 256 KB)
-  ├── Block 0 (64 KB) → LZ77 + Huffman → compressed payload?  → STORED (raw copy)
-  ├── Block 1 (64 KB) → LZ77 + Huffman → compressed payload?  → COMPRESSED
-  ├── Block 2 (64 KB) → LZ77 + Huffman → compressed payload?  → COMPRESSED
-  └── Block 3 (64 KB) → LZ77 + Huffman → compressed payload?  → STORED (raw copy)
-```
-
-**The problem it solves:** High-entropy files (PDFs, JPEGs, ZIPs, already-compressed binaries) do not compress well. Applying LZ77+Huffman to these files wastes CPU cycles and, worst case, *increases* the output size (incompressibility expansion). A naive whole-file compressor either always compresses (wasting time) or requires a slow heuristic pass.
-
-**The Smart Fallback solution:** After compression, the engine compares the compressed payload size against the original block size. If the compressed representation is *larger*, the block is written as raw stored bytes instead. This is a **per-block, per-signal decision** — no heuristics, no guessing, zero waste.
-
-### V2 Binary Format
-
-```
-┌──────────────────────────────────────────────────┐
-│ CompressionHeader (15 bytes, #pragma pack(1))    │
-│   magic        : uint32_t  (0x48445043 = "HDPC") │
-│   majorVersion : uint8_t   (2)                   │
-│   minorVersion : uint8_t   (0)                   │
-│   originalSize : uint32_t                        │
-│   blockSize    : uint32_t  (default: 65536)       │
-│   blockCount   : uint32_t                        │
-├──────────────────────────────────────────────────┤
-│ Block 0..N                                       │
-│ ┌────────────────────────────────────────────┐   │
-│ │ BlockHeader (5 bytes, #pragma pack(1))     │   │
-│ │   flags    : uint8_t  (0x00=STORED,        │   │
-│ │                        0x01=COMPRESSED)    │   │
-│ │   dataSize : uint32_t                      │   │
-│ ├────────────────────────────────────────────┤   │
-│ │ Payload (dataSize bytes)                   │   │
-│ │   STORED:    raw block bytes               │   │
-│ │   COMPRESSED: [symbolCount(4)] + Huffman   │   │
-│ └────────────────────────────────────────────┘   │
-└──────────────────────────────────────────────────┘
-```
-
-All headers use `#pragma pack(1)` to eliminate compiler padding, ensuring a predictable 5-byte `BlockHeader` and 15-byte `CompressionHeader` across all platforms. This is critical for a portable binary format.
+<div align="center">
+  <img src="assets/UI.png" alt="Interfaz TUI de ZCore" width="800"/>
+</div>
 
 ---
 
-## Installation
+## ✨ Características Principales
 
-### Prerequisites
+*   🧠 **Arquitectura Stream-Agnostic por Chunks:** El motor nunca intenta cargar todo el archivo en la memoria. Lee y procesa en ráfagas de tamaño fijo de **4MB**, lo que permite comprimir archivos masivos de 5GB consumiendo menos de 10MB de RAM.
+*   ⚡ **Motor LZ77 Ultrarrápido:** Búsqueda retrospectiva optimizada mediante **Chained Hash Tables** (*Lookups O(1)*), logrando velocidades de procesamiento de decenas de megabytes por segundo en un solo hilo al evitar el temido $O(N \cdot W)$.
+*   🗜️ **Cuatro Algoritmos Nativos:**
+    *   **Huffman:** Árboles de prioridad generados localmente y diccionarios empotrados por bloque.
+    *   **LZ77:** Ventana deslizante continua (Buffer Circular) que conserva el historial entre transiciones de chunks.
+    *   **Deflate:** El estándar dorado de la industria (LZ77 + Huffman combinados).
+    *   **Gzip:** Deflate acoplado con cabeceras, metadatos y sumas de comprobación CRC32 (*RFC 1952*).
+*   🎨 **FTXUI TUI Interactiva (Dual Mode):** Un *Worker Thread* independiente procesa los bits mientras el hilo principal renderiza a 60 FPS una interfaz fluida, con barras de progreso nativas y componentes interactivos sin bloqueos.
+*   📂 **Auto-Enrutamiento de Extensiones:** 
+    *   GZIP `-> .gz` | DEFLATE `-> .df` | LZ77 `-> .l7` | HUFFMAN `-> .huf`
+    *   *(Reconstrucción Inteligente: Descomprimir un `.gz` elimina la extensión para restaurar el archivo en su estado prístino).*
 
-- **Compiler**: GCC 9+, Clang 10+, or MSVC 2019+ (C++17 required)
-- **Build system**: CMake 3.15+
+---
 
-### Build
+## 🚀 Compilación e Instalación
+
+Asegúrate de tener instalado un compilador moderno (GCC 9+ o Clang 10+) y **CMake**.
 
 ```bash
-git clone https://github.com/epadev/hpc-compressor.git
-cd hpc-compressor
-mkdir build && cd build
-cmake .. -DCMAKE_BUILD_TYPE=Release
-cmake --build . --config Release
+# 1. Clonar el repositorio
+git clone https://github.com/elisbanpaco/zcore.git
+cd zcore
+
+# 2. Configurar en Modo de Máximo Rendimiento (Release)
+cmake -B build -DCMAKE_BUILD_TYPE=Release
+
+# 3. Compilar el proyecto (descargará automáticamente CLI11 y FTXUI)
+cmake --build build
 ```
 
-The binary is output to `build/bin/hpc`.
+---
 
-### Install (optional)
+## 💻 Guía de Uso
 
+### 1. Interfaz Gráfica (TUI Interactiva)
+Si ejecutas el motor sin argumentos, la hermosa interfaz interactiva de consola se lanzará automáticamente:
 ```bash
-sudo cmake --install . --prefix /usr/local
+./build/compressor
 ```
+*También puedes forzarla escribiendo `./build/compressor --tui`.*
 
----
+### 2. Línea de Comandos (CLI para Servidores)
+Diseñada para ser encadenada en scripts Bash o flujos automatizados de servidor (CI/CD):
 
-## Usage
-
+**Comprimir (Auto-genera las extensiones pertinentes):**
 ```bash
-# Compress
-./hpc -c input.txt -o input.txt.hpc
-
-# Decompress
-./hpc -d input.txt.hpc -o restored.txt
-
-# Shorthand — compress (auto .hpc output)
-./hpc input.bin
-
-# Shorthand — decompress (auto-strip .hpc extension)
-./hpc compressed.hpc
-
-# Verbose mode
-./hpc -c -v largefile.dat -o compressed.hpc
-
-# Quiet mode (errors only)
-./hpc -d -q archive.hpc -o archive.tar
+./build/compressor -c -a deflate -i dataset.bin
 ```
 
-### Options
+**Descomprimir:**
+```bash
+./build/compressor -d -i dataset.bin.df
+```
 
-| Flag | Description |
-|------|-------------|
-| `-c, --compress` | Compression mode |
-| `-d, --decompress` | Decompression mode |
-| `-i, --input FILE` | Input file |
-| `-o, --output FILE` | Output file |
-| `-v, --verbose` | Enable verbose logging |
-| `-q, --quiet` | Suppress non-error output |
-| `-V, --version` | Print version |
-| `-h, --help` | Print usage |
+**Ver opciones y menú de ayuda:**
+```bash
+./build/compressor --help
+```
 
 ---
 
-## Benchmarks
+## 🏗️ Arquitectura del Sistema (Staff Engineer Level)
 
-> Fill in after running on your hardware.
+El motor ZCore fue reescrito en la **Fase 1 y Fase 2** siguiendo metodologías estrictas de ingeniería de software:
 
-| File Type | Original Size | Compressed Size | Ratio | Time | RAM |
-|-----------|---------------|-----------------|-------|------|-----|
-| Plain text (.txt) | | | | | |
-| Source code (.cpp) | | | | | |
-| JSON data (.json) | | | | | |
-| Binary (.bin) | | | | | |
-| PDF (.pdf) | | | | | |
-| JPEG (.jpg) | | | | | |
-| ZIP archive (.zip) | | | | | |
+*   **Pura Inversión de Dependencias:** `Compressor.hpp` exige `std::istream` y `std::ostream`. Los algoritmos no conocen archivos físicos (Disco), solo flujos de bytes (Streams). Esto permite inyectar datos de red HTTP o flujos simulados directamente en memoria sin modificar la lógica principal.
+*   **Thread-Safety Absoluto:** Al evitar las variables globales en favor de objetos en la Pila (*Stack*) o punteros inteligentes, el núcleo algorítmico garantiza inmunidad contra *Race Conditions* y *Data Races* al ser paralelizado.
+*   **Control Asíncrono de UI:** La interfaz separa el renderizado asíncrono (Main Thread) de la Fuerza Bruta algorítmica disparando closures desacoplados (`std::thread(...).detach()`), y reportando actualizaciones de barras de progreso vía Callbacks seguros (`screen.PostEvent(Event::Custom)`).
 
 ---
 
-## License
+## 🛠️ Entorno de Pruebas (Test Suite)
+El proyecto está blindado por una suite de pruebas profesionales escritas en **Catch2** (v3), divididas en dos fases críticas de validación:
 
-[MIT](LICENSE)
+1. **Fase de Integridad (100% Lossless):** Garantiza matemáticamente que los datos no sufran corrupción. Utilizando flujos de memoria (`std::stringstream`), el test somete fragmentos de texto altamente repetitivos a los motores de **Huffman, LZ77, Deflate y Gzip**, comprimiendo y descomprimiendo la data para asegurar que la salida es una réplica *Byte a Byte* del archivo original.
+2. **Fase de Estrés Virtual (O(1) Space Complexity):** El sistema hereda de `std::streambuf` para crear un Agujero Negro y un Generador de Datos en Memoria. Inyecta **5 Gigabytes** de información directamente en el algoritmo Deflate. Se extrae el uso de memoria RAM (VmRSS) directo de Linux garantizando que el uso de Heap Memory jamás exceda el límite establecido de 30MB extra.
+
+Para ejecutar los tests:
+```bash
+cmake --build build
+./build/test_compression -d yes
+```
+
+---
+<div align="center">
+  <p align="center">Construido con ❤️ para la comunidad</p>
+</div>
