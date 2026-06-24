@@ -9,36 +9,14 @@ using namespace std;
 namespace {
     const uint16_t MAX_VENTANA_BUSQUEDA = 4095;
     const uint8_t MAX_LONGITUD_COINCIDENCIA = 255;
+    const int HASH_SIZE = 65536; // Hash table size for O(1) lookups
+    const int MAX_CHAIN_DEPTH = 100; // Limit hash collision search depth for speed
 
     struct Tupla {
         uint16_t distancia;
         uint8_t longitud;
         char siguiente_caracter;
     };
-
-    Tupla buscarMejorCoincidencia(const vector<char>& ventana, int posicionActual) {
-        Tupla mejor = {0, 0, ventana[posicionActual]};
-        int inicioBusqueda = max(0, posicionActual - MAX_VENTANA_BUSQUEDA);
-        
-        for (int j = inicioBusqueda; j < posicionActual; ++j) {
-            int longitudActual = 0;
-            while (longitudActual < MAX_LONGITUD_COINCIDENCIA && 
-                   posicionActual + longitudActual < ventana.size() &&
-                   ventana[j + longitudActual] == ventana[posicionActual + longitudActual]) {
-                longitudActual++;
-            }
-            if (longitudActual > mejor.longitud) {
-                mejor.distancia = posicionActual - j;
-                mejor.longitud = longitudActual;
-                if (posicionActual + longitudActual < ventana.size()) {
-                    mejor.siguiente_caracter = ventana[posicionActual + longitudActual];
-                } else {
-                    mejor.siguiente_caracter = '\0';
-                }
-            }
-        }
-        return mejor;
-    }
 }
 
 void Lz77::compress(std::istream& entrada, std::ostream& salida, std::function<void(size_t)> progress_callback) {
@@ -64,16 +42,65 @@ void Lz77::compress(std::istream& entrada, std::ostream& salida, std::function<v
 
         int start_idx = historial.size();
         int end_idx = ventana.size();
-        int i = start_idx;
+        
+        // Fast LZ77 using Hash Table
+        vector<int> head(HASH_SIZE, -1);
+        vector<int> prev_match(ventana.size(), -1);
 
+        for (int i = 0; i < start_idx - 2; ++i) {
+            uint16_t hash = (static_cast<uint8_t>(ventana[i]) << 8) | static_cast<uint8_t>(ventana[i+1]);
+            prev_match[i] = head[hash];
+            head[hash] = i;
+        }
+
+        int i = start_idx;
         while (i < end_idx) {
-            Tupla tupla = buscarMejorCoincidencia(ventana, i);
+            Tupla mejor = {0, 0, ventana[i]};
+
+            if (i < end_idx - 2) {
+                uint16_t hash = (static_cast<uint8_t>(ventana[i]) << 8) | static_cast<uint8_t>(ventana[i+1]);
+                int match_idx = head[hash];
+                
+                prev_match[i] = head[hash];
+                head[hash] = i;
+
+                int depth = 0;
+                while (match_idx != -1 && depth < MAX_CHAIN_DEPTH) {
+                    int dist = i - match_idx;
+                    if (dist > MAX_VENTANA_BUSQUEDA) break; 
+                    
+                    int len = 0;
+                    while (len < MAX_LONGITUD_COINCIDENCIA && i + len < end_idx && ventana[match_idx + len] == ventana[i + len]) {
+                        len++;
+                    }
+                    
+                    if (len > mejor.longitud) {
+                        mejor.distancia = dist;
+                        mejor.longitud = len;
+                        mejor.siguiente_caracter = (i + len < end_idx) ? ventana[i + len] : '\0';
+                        if (len == MAX_LONGITUD_COINCIDENCIA) break; 
+                    }
+                    
+                    match_idx = prev_match[match_idx];
+                    depth++;
+                }
+            }
+
+            salida.write(reinterpret_cast<const char*>(&mejor.distancia), sizeof(mejor.distancia));
+            salida.write(reinterpret_cast<const char*>(&mejor.longitud), sizeof(mejor.longitud));
+            salida.write(&mejor.siguiente_caracter, sizeof(mejor.siguiente_caracter));
             
-            salida.write(reinterpret_cast<const char*>(&tupla.distancia), sizeof(tupla.distancia));
-            salida.write(reinterpret_cast<const char*>(&tupla.longitud), sizeof(tupla.longitud));
-            salida.write(&tupla.siguiente_caracter, sizeof(tupla.siguiente_caracter));
+            // Advance and update hash table
+            for (int k = 1; k <= mejor.longitud; ++k) {
+                int pos = i + k;
+                if (pos < end_idx - 2) {
+                    uint16_t hash = (static_cast<uint8_t>(ventana[pos]) << 8) | static_cast<uint8_t>(ventana[pos+1]);
+                    prev_match[pos] = head[hash];
+                    head[hash] = pos;
+                }
+            }
             
-            i += tupla.longitud + 1;
+            i += mejor.longitud + 1;
         }
 
         size_t new_history_size = min(ventana.size(), HISTORY_SIZE);
