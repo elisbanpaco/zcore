@@ -11,36 +11,14 @@ using namespace std;
 namespace {
     const uint16_t MAX_VENTANA_BUSQUEDA = 4095;
     const uint8_t MAX_LONGITUD_COINCIDENCIA = 255;
+    const int HASH_SIZE = 65536;
+    const int MAX_CHAIN_DEPTH = 100;
 
     struct Tupla {
         uint16_t distancia;
         uint8_t longitud;
         char siguiente_caracter;
     };
-
-    Tupla buscarMejorCoincidencia(const vector<char>& ventana, int posicionActual) {
-        Tupla mejor = {0, 0, ventana[posicionActual]};
-        int inicioBusqueda = max(0, posicionActual - MAX_VENTANA_BUSQUEDA);
-        
-        for (int j = inicioBusqueda; j < posicionActual; ++j) {
-            int longitudActual = 0;
-            while (longitudActual < MAX_LONGITUD_COINCIDENCIA && 
-                   posicionActual + longitudActual < ventana.size() &&
-                   ventana[j + longitudActual] == ventana[posicionActual + longitudActual]) {
-                longitudActual++;
-            }
-            if (longitudActual > mejor.longitud) {
-                mejor.distancia = posicionActual - j;
-                mejor.longitud = longitudActual;
-                if (posicionActual + longitudActual < ventana.size()) {
-                    mejor.siguiente_caracter = ventana[posicionActual + longitudActual];
-                } else {
-                    mejor.siguiente_caracter = '\0';
-                }
-            }
-        }
-        return mejor;
-    }
 
     struct Nodo {
         char caracter;
@@ -69,7 +47,7 @@ namespace {
 }
 
 void Deflate::compress(std::istream& entrada, std::ostream& salida, std::function<void(size_t)> progress_callback) {
-    const size_t CHUNK_SIZE = 4 * 1024 * 1024; // 4MB
+    const size_t CHUNK_SIZE = 4 * 1024 * 1024; 
     const size_t HISTORY_SIZE = MAX_VENTANA_BUSQUEDA;
 
     vector<char> historial;
@@ -81,7 +59,6 @@ void Deflate::compress(std::istream& entrada, std::ostream& salida, std::functio
         size_t bytes_read = entrada.gcount();
         if (bytes_read == 0) break;
 
-        // LZ77 Phase
         vector<char> ventana;
         ventana.reserve(historial.size() + bytes_read);
         ventana.insert(ventana.end(), historial.begin(), historial.end());
@@ -93,19 +70,65 @@ void Deflate::compress(std::istream& entrada, std::ostream& salida, std::functio
         vector<char> buffer_lz77;
         int start_idx = historial.size();
         int end_idx = ventana.size();
-        int i = start_idx;
+        
+        vector<int> head(HASH_SIZE, -1);
+        vector<int> prev_match(ventana.size(), -1);
 
-        while (i < end_idx) {
-            Tupla tupla = buscarMejorCoincidencia(ventana, i);
-            const char* dist_ptr = reinterpret_cast<const char*>(&tupla.distancia);
-            buffer_lz77.insert(buffer_lz77.end(), dist_ptr, dist_ptr + sizeof(tupla.distancia));
-            const char* long_ptr = reinterpret_cast<const char*>(&tupla.longitud);
-            buffer_lz77.insert(buffer_lz77.end(), long_ptr, long_ptr + sizeof(tupla.longitud));
-            buffer_lz77.push_back(tupla.siguiente_caracter);
-            i += tupla.longitud + 1;
+        for (int i = 0; i < start_idx - 2; ++i) {
+            uint16_t hash = (static_cast<uint8_t>(ventana[i]) << 8) | static_cast<uint8_t>(ventana[i+1]);
+            prev_match[i] = head[hash];
+            head[hash] = i;
         }
 
-        // Huffman Phase
+        int i = start_idx;
+        while (i < end_idx) {
+            Tupla mejor = {0, 0, ventana[i]};
+
+            if (i < end_idx - 2) {
+                uint16_t hash = (static_cast<uint8_t>(ventana[i]) << 8) | static_cast<uint8_t>(ventana[i+1]);
+                int match_idx = head[hash];
+                
+                prev_match[i] = head[hash];
+                head[hash] = i;
+
+                int depth = 0;
+                while (match_idx != -1 && depth < MAX_CHAIN_DEPTH) {
+                    int dist = i - match_idx;
+                    if (dist > MAX_VENTANA_BUSQUEDA) break; 
+                    
+                    int len = 0;
+                    while (len < MAX_LONGITUD_COINCIDENCIA && i + len < end_idx && ventana[match_idx + len] == ventana[i + len]) {
+                        len++;
+                    }
+                    
+                    if (len > mejor.longitud) {
+                        mejor.distancia = dist;
+                        mejor.longitud = len;
+                        mejor.siguiente_caracter = (i + len < end_idx) ? ventana[i + len] : '\0';
+                        if (len == MAX_LONGITUD_COINCIDENCIA) break; 
+                    }
+                    match_idx = prev_match[match_idx];
+                    depth++;
+                }
+            }
+
+            const char* dist_ptr = reinterpret_cast<const char*>(&mejor.distancia);
+            buffer_lz77.insert(buffer_lz77.end(), dist_ptr, dist_ptr + sizeof(mejor.distancia));
+            const char* long_ptr = reinterpret_cast<const char*>(&mejor.longitud);
+            buffer_lz77.insert(buffer_lz77.end(), long_ptr, long_ptr + sizeof(mejor.longitud));
+            buffer_lz77.push_back(mejor.siguiente_caracter);
+
+            for (int k = 1; k <= mejor.longitud; ++k) {
+                int pos = i + k;
+                if (pos < end_idx - 2) {
+                    uint16_t hash = (static_cast<uint8_t>(ventana[pos]) << 8) | static_cast<uint8_t>(ventana[pos+1]);
+                    prev_match[pos] = head[hash];
+                    head[hash] = pos;
+                }
+            }
+            i += mejor.longitud + 1;
+        }
+
         int id_counter = 0; 
         map<char, int> frecuencias;
         for (char c : buffer_lz77) frecuencias[c]++;
@@ -156,7 +179,6 @@ void Deflate::compress(std::istream& entrada, std::ostream& salida, std::functio
 
         delete raiz;
 
-        // Update history
         size_t new_history_size = min(ventana.size(), HISTORY_SIZE);
         historial.assign(ventana.end() - new_history_size, ventana.end());
 
