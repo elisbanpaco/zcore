@@ -11,36 +11,14 @@ using namespace std;
 namespace {
     const uint16_t MAX_VENTANA_BUSQUEDA = 4095;
     const uint8_t MAX_LONGITUD_COINCIDENCIA = 255;
+    const int HASH_SIZE = 65536;
+    const int MAX_CHAIN_DEPTH = 100;
 
     struct Tupla {
         uint16_t distancia;
         uint8_t longitud;
         char siguiente_caracter;
     };
-
-    Tupla buscarMejorCoincidencia(const vector<char>& ventana, int posicionActual) {
-        Tupla mejor = {0, 0, ventana[posicionActual]};
-        int inicioBusqueda = max(0, posicionActual - MAX_VENTANA_BUSQUEDA);
-        
-        for (int j = inicioBusqueda; j < posicionActual; ++j) {
-            int longitudActual = 0;
-            while (longitudActual < MAX_LONGITUD_COINCIDENCIA && 
-                   posicionActual + longitudActual < ventana.size() &&
-                   ventana[j + longitudActual] == ventana[posicionActual + longitudActual]) {
-                longitudActual++;
-            }
-            if (longitudActual > mejor.longitud) {
-                mejor.distancia = posicionActual - j;
-                mejor.longitud = longitudActual;
-                if (posicionActual + longitudActual < ventana.size()) {
-                    mejor.siguiente_caracter = ventana[posicionActual + longitudActual];
-                } else {
-                    mejor.siguiente_caracter = '\0';
-                }
-            }
-        }
-        return mejor;
-    }
 
     struct Nodo {
         char caracter;
@@ -67,7 +45,6 @@ namespace {
         generarCodigosGzip(raiz->der, codigo + "1", diccionario);
     }
 
-    // Tabla de CRC32 dinámica
     uint32_t calcularCRC32Chunk(const vector<char>& datos, uint32_t crc_previo = 0) {
         uint32_t crc = ~crc_previo;
         for (char byte : datos) {
@@ -82,18 +59,14 @@ namespace {
 }
 
 void Gzip::compress(std::istream& entrada, std::ostream& salida, std::function<void(size_t)> progress_callback) {
-    // HEADER GZIP (RFC 1952)
     const uint8_t HEADER[10] = {
-        0x1F, 0x8B, // Magic Number (GZIP)
-        0x08,       // Método de compresión (8 = DEFLATE)
-        0x00,       // Flags
-        0x00, 0x00, 0x00, 0x00, // Tiempo de modificación (0 = no disponible)
-        0x00,       // Flags extra
-        0xFF        // OS (255 = desconocido)
+        0x1F, 0x8B, 0x08, 0x00,
+        0x00, 0x00, 0x00, 0x00,
+        0x00, 0xFF
     };
     salida.write(reinterpret_cast<const char*>(HEADER), sizeof(HEADER));
 
-    const size_t CHUNK_SIZE = 4 * 1024 * 1024; // 4MB
+    const size_t CHUNK_SIZE = 4 * 1024 * 1024; 
     const size_t HISTORY_SIZE = MAX_VENTANA_BUSQUEDA;
 
     vector<char> historial;
@@ -108,12 +81,10 @@ void Gzip::compress(std::istream& entrada, std::ostream& salida, std::function<v
         size_t bytes_read = entrada.gcount();
         if (bytes_read == 0) break;
 
-        // Actualizar CRC32 e ISIZE del flujo original sin comprimir
         vector<char> chunk_puro(buffer.begin(), buffer.begin() + bytes_read);
         crc_acumulado = calcularCRC32Chunk(chunk_puro, crc_acumulado);
         isize_acumulado += bytes_read;
 
-        // LZ77 Phase
         vector<char> ventana;
         ventana.reserve(historial.size() + bytes_read);
         ventana.insert(ventana.end(), historial.begin(), historial.end());
@@ -125,19 +96,65 @@ void Gzip::compress(std::istream& entrada, std::ostream& salida, std::function<v
         vector<char> buffer_lz77;
         int start_idx = historial.size();
         int end_idx = ventana.size();
-        int i = start_idx;
+        
+        vector<int> head(HASH_SIZE, -1);
+        vector<int> prev_match(ventana.size(), -1);
 
-        while (i < end_idx) {
-            Tupla tupla = buscarMejorCoincidencia(ventana, i);
-            const char* dist_ptr = reinterpret_cast<const char*>(&tupla.distancia);
-            buffer_lz77.insert(buffer_lz77.end(), dist_ptr, dist_ptr + sizeof(tupla.distancia));
-            const char* long_ptr = reinterpret_cast<const char*>(&tupla.longitud);
-            buffer_lz77.insert(buffer_lz77.end(), long_ptr, long_ptr + sizeof(tupla.longitud));
-            buffer_lz77.push_back(tupla.siguiente_caracter);
-            i += tupla.longitud + 1;
+        for (int i = 0; i < start_idx - 2; ++i) {
+            uint16_t hash = (static_cast<uint8_t>(ventana[i]) << 8) | static_cast<uint8_t>(ventana[i+1]);
+            prev_match[i] = head[hash];
+            head[hash] = i;
         }
 
-        // Huffman Phase
+        int i = start_idx;
+        while (i < end_idx) {
+            Tupla mejor = {0, 0, ventana[i]};
+
+            if (i < end_idx - 2) {
+                uint16_t hash = (static_cast<uint8_t>(ventana[i]) << 8) | static_cast<uint8_t>(ventana[i+1]);
+                int match_idx = head[hash];
+                
+                prev_match[i] = head[hash];
+                head[hash] = i;
+
+                int depth = 0;
+                while (match_idx != -1 && depth < MAX_CHAIN_DEPTH) {
+                    int dist = i - match_idx;
+                    if (dist > MAX_VENTANA_BUSQUEDA) break; 
+                    
+                    int len = 0;
+                    while (len < MAX_LONGITUD_COINCIDENCIA && i + len < end_idx && ventana[match_idx + len] == ventana[i + len]) {
+                        len++;
+                    }
+                    
+                    if (len > mejor.longitud) {
+                        mejor.distancia = dist;
+                        mejor.longitud = len;
+                        mejor.siguiente_caracter = (i + len < end_idx) ? ventana[i + len] : '\0';
+                        if (len == MAX_LONGITUD_COINCIDENCIA) break; 
+                    }
+                    match_idx = prev_match[match_idx];
+                    depth++;
+                }
+            }
+
+            const char* dist_ptr = reinterpret_cast<const char*>(&mejor.distancia);
+            buffer_lz77.insert(buffer_lz77.end(), dist_ptr, dist_ptr + sizeof(mejor.distancia));
+            const char* long_ptr = reinterpret_cast<const char*>(&mejor.longitud);
+            buffer_lz77.insert(buffer_lz77.end(), long_ptr, long_ptr + sizeof(mejor.longitud));
+            buffer_lz77.push_back(mejor.siguiente_caracter);
+
+            for (int k = 1; k <= mejor.longitud; ++k) {
+                int pos = i + k;
+                if (pos < end_idx - 2) {
+                    uint16_t hash = (static_cast<uint8_t>(ventana[pos]) << 8) | static_cast<uint8_t>(ventana[pos+1]);
+                    prev_match[pos] = head[hash];
+                    head[hash] = pos;
+                }
+            }
+            i += mejor.longitud + 1;
+        }
+
         int id_counter = 0; 
         map<char, int> frecuencias;
         for (char c : buffer_lz77) frecuencias[c]++;
@@ -188,7 +205,6 @@ void Gzip::compress(std::istream& entrada, std::ostream& salida, std::function<v
 
         delete raiz;
 
-        // Update history
         size_t new_history_size = min(ventana.size(), HISTORY_SIZE);
         historial.assign(ventana.end() - new_history_size, ventana.end());
 
@@ -196,53 +212,37 @@ void Gzip::compress(std::istream& entrada, std::ostream& salida, std::function<v
         if (progress_callback) progress_callback(total_processed);
     }
 
-    // TRAILER GZIP (RFC 1952)
     salida.write(reinterpret_cast<const char*>(&crc_acumulado), sizeof(crc_acumulado));
     salida.write(reinterpret_cast<const char*>(&isize_acumulado), sizeof(isize_acumulado));
 }
 
 void Gzip::decompress(std::istream& entrada, std::ostream& salida, std::function<void(size_t)> progress_callback) {
-    // Validar HEADER GZIP
     uint8_t magic[2];
     if (!entrada.read(reinterpret_cast<char*>(magic), 2) || magic[0] != 0x1F || magic[1] != 0x8B) {
-        throw std::runtime_error("El archivo no es un formato GZIP válido (Magic bytes incorrectos).");
+        throw std::runtime_error("No es GZIP (Magic bytes incorrectos).");
     }
 
     uint8_t method;
     if (!entrada.read(reinterpret_cast<char*>(&method), 1) || method != 0x08) {
-        throw std::runtime_error("Método de compresión no soportado (Solo DEFLATE).");
+        throw std::runtime_error("Método no soportado (Solo DEFLATE).");
     }
 
     uint8_t flags;
     entrada.read(reinterpret_cast<char*>(&flags), 1);
-    entrada.seekg(6, ios::cur); // Ignorar mtime, xfl, os
+    entrada.seekg(6, ios::cur); 
 
-    // Deflate loop (Chunked)
     const size_t HISTORY_SIZE = MAX_VENTANA_BUSQUEDA;
     vector<char> historial;
     size_t total_processed = 0;
     
-    // Leemos hasta que no haya más chunks, o encontremos algo que parece el Trailer
-    // El trailer tiene 8 bytes. Si quedan solo 8 bytes en el stream, es el trailer.
-    // Una forma elegante es guardar la posición y chequear si faltan 8 bytes, pero 
-    // chunk_bytes_to_process consume 4 bytes.
-    // Usaremos un truco: leemos los 4 bytes de chunk_size. Si fallamos en reconstruir
-    // significa que esos 4 bytes eran el CRC32 (el inicio del trailer).
-    
     while (true) {
-        // Miramos cuántos bytes quedan
         auto curr = entrada.tellg();
         entrada.seekg(0, ios::end);
         auto remaining = entrada.tellg() - curr;
         entrada.seekg(curr);
 
-        if (remaining == 8) {
-            // Llegamos al trailer
-            break;
-        }
-        if (remaining < 8) {
-            throw std::runtime_error("Stream corrupto, faltan bytes en el trailer de GZIP.");
-        }
+        if (remaining == 8) break;
+        if (remaining < 8) throw std::runtime_error("Trailer de GZIP corrupto.");
 
         uint32_t chunk_bytes_to_process;
         if (!entrada.read(reinterpret_cast<char*>(&chunk_bytes_to_process), sizeof(chunk_bytes_to_process))) break;
@@ -341,7 +341,6 @@ void Gzip::decompress(std::istream& entrada, std::ostream& salida, std::function
         if (progress_callback) progress_callback(total_processed);
     }
 
-    // Validar Trailer
     uint32_t leido_crc, leido_isize;
     entrada.read(reinterpret_cast<char*>(&leido_crc), sizeof(leido_crc));
     entrada.read(reinterpret_cast<char*>(&leido_isize), sizeof(leido_isize));
